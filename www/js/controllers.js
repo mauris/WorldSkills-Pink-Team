@@ -60,22 +60,19 @@ angular.module('starter.controllers', [])
         return area;
     }
 
-    function initialize() {
-        map = new gmaps.Map(document.getElementById("map-canvas"), mapOptions);
+    map = new gmaps.Map(document.getElementById("map-canvas"), mapOptions);
 
-        gmaps.event.addListener(map, 'mousedown', function(event) {
-          geocoder.geocode({'location': event.latLng}, function(results, status){
-            if (status == gmaps.GeocoderStatus.OK && results[0]) {
-              var neighbourhood = getArea(event.latLng, results[0].address_components);
-              $scope.$apply(function(){
-                $scope.showConfirmation = true;
-              });
-              document.getElementById('location-prompt-area').innerHTML = neighbourhood;
-            }
+    gmaps.event.addListener(map, 'mousedown', function(event) {
+      geocoder.geocode({'location': event.latLng}, function(results, status){
+        if (status == gmaps.GeocoderStatus.OK && results[0]) {
+          var neighbourhood = getArea(event.latLng, results[0].address_components);
+          $scope.$apply(function(){
+            $scope.showConfirmation = true;
           });
-        });
-    }
-    gmaps.event.addDomListener(window, 'load', initialize);
+          document.getElementById('location-prompt-area').innerHTML = neighbourhood;
+        }
+      });
+    });
   })(google, google.maps);
 })
 
