@@ -1,20 +1,21 @@
 <div class="bar bar-header bar-stable">
   <h1 class="title">Where do you live?</h1>
 </div>
-<div style="margin-top: 50px;">
+<ion-content class="has-header padding">
     <h3>
       We are almost done.
     </h3>
     <h1>
       Where are you?
     </h1>
-    <div id="map-canvas" style="position:absolute; top: 140px; bottom: 43px; left: 0; right: 0;"></div>
-</div>
+</ion-content>
+
+<div id="map-canvas" style="position:absolute; top: 140px; bottom: 43px; left: 0; right: 0;"></div>
 <div id="location-prompt-confirm" ng-show="showConfirmation">
   <p>
     Do you stay in <span id="location-prompt-area"></span>?
   </p>
-  <a href="" class="button button-full button-positive">Yes</a> <button ng-click="showConfirmation = false;" class="button button-full button-stable">No</button>
+  <a href="#/feeling" class="button button-full button-positive">Yes</a> <button ng-click="showConfirmation = false;" class="button button-full button-stable">No</button>
 </div>
 <button class="bar bar-footer bar-assertive">
   <div class="title">I'd rather not say</div>
