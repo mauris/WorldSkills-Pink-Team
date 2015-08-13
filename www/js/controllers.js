@@ -1,6 +1,30 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope, nearestNeighbor) {
+  var items = [
+    { name: "Bill", age: 10, pc: "Mac"},
+    { name: "Bill", age: 10, pc: "Mac"},
+    { name: "Bill", age: 10, pc: "Mac"},
+    { name: "Bob", age: 10, pc: "Mac"},
+    { name: "Bob", age: 11, pc: ""},
+  ];
+
+  var query = { name: "Bob", age: 12, pc: "Windows" };
+
+  var fields = [
+    { name: "name", measure: nearestNeighbor.comparisonMethods.word },
+    { name: "age", measure: nearestNeighbor.comparisonMethods.number, max: 100 },
+    { name: "pc", measure: nearestNeighbor.comparisonMethods.word }
+  ];
+
+  nearestNeighbor.findMostSimilar(query, items, fields, function(nearest) {
+    console.log('=== Query ===');
+    console.log(query);
+
+    console.log('=== Results ===');
+    console.log(nearest);
+  });
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
