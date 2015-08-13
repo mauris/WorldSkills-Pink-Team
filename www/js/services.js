@@ -172,11 +172,11 @@ angular.module('starter.services', [])
     while (i < items.length) {
       item = items[i];
       _ref = recordSimilarity(item, query, fields), similarity = _ref[0], unmatchedFields = _ref[1];
-      if (similarity > maxSimilarity) {
+      // if (similarity > maxSimilarity) {
         maxSimilarity = similarity;
         item.similarity = similarity;
         result.push(item);
-      }
+      // }
       i++;
     }
     return callback(result, maxSimilarity, unmatchedFields);
@@ -187,4 +187,62 @@ angular.module('starter.services', [])
     comparisonMethods: comparisonMethods,
     findMostSimilar: findMostSimilar
   };
+})
+
+.factory('users', function() {
+  return [{
+      gender: "female",
+      location: {lat:-23.516322, lng:-46.636582},
+      status: "married",
+      typeOfIssue: "Cervical",
+      treatment: "Surgery",
+      numberOfChildren: 0,
+      role: "angel"
+  },
+  {
+      gender: "male",
+      location: {lat:-23.516361, lng:-46.626068},
+      status: "single",
+      typeOfIssue: "Cervical",
+      treatment: "Surgery",
+      numberOfChildren: 2,
+      role: "angel"
+  },
+  {
+      gender: "female",
+      location: {lat:-23.521634, lng:-46.623837},
+      status: "single",
+      typeOfIssue: "Ovarian",
+      treatment: "Chemotherapy",
+      numberOfChildren: 0,
+      role: "angel"
+  },
+  {
+      gender: "male",
+      location: {lat:-23.521359, lng:-46.630478},
+      status: "single",
+      typeOfIssue: "Prostate",
+      treatment: "Surgery",
+      numberOfChildren: 1,
+      role: "angel"
+  },
+  // {
+  //     gender: "male",
+  //     location: {lat:-23.52677, lng:-46.664291},
+  //     status: "married",
+  //     typeOfIssue: "Pancreatic",
+  //     treatment: "Surgery",
+  //     numberOfChildren: 1,
+  //     role: "fighter"
+  // },
+
+  {
+      gender: "female",
+      location: {lat:-23.571691, lng:-46.646303},
+      status: "married",
+          typeOfIssue: "Stomach",
+          treatment: "Surgery",
+          numberOfChildren: 3,
+          role: "fighter"
+  }]
 });
