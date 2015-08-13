@@ -68,7 +68,7 @@ angular.module('starter.controllers', [])
             if (status == gmaps.GeocoderStatus.OK && results[0]) {
               var neighbourhood = getArea(event.latLng, results[0].address_components);
               $scope.$apply(function(){
-                  $scope.showConfirmation = true;
+                $scope.showConfirmation = true;
               });
               document.getElementById('location-prompt-area').innerHTML = neighbourhood;
             }
@@ -81,4 +81,8 @@ angular.module('starter.controllers', [])
 
 .controller('FeelingController', function($scope) {
 
+})
+
+.controller('FeelingReplyController', function($scope) {
+  $scope.name = "John";
 });

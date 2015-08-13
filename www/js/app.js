@@ -55,6 +55,12 @@ angular.module('pinkTeam', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/feeling',
     templateUrl: 'templates/feeling.html',
     controller: 'FeelingController'
+  })
+
+  .state('feeling-reply', {
+    url: '/feeling-reply',
+    templateUrl: 'templates/feeling-reply.html',
+    controller: 'FeelingReplyController'
   });
 
   $urlRouterProvider.otherwise('/');
