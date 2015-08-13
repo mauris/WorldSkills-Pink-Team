@@ -10,6 +10,12 @@
     </h1>
     <div id="map-canvas" style="position:absolute; top: 140px; bottom: 43px; left: 0; right: 0;"></div>
 </div>
+<div id="location-prompt-confirm" ng-show="showConfirmation">
+  <p>
+    Do you stay in <span id="location-prompt-area"></span>?
+  </p>
+  <a href="" class="button button-full button-positive">Yes</a> <button ng-click="showConfirmation = false;" class="button button-full button-stable">No</button>
+</div>
 <div class="bar bar-footer bar-assertive">
   <div class="title">I'd rather not say</div>
 </div>

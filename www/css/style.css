@@ -3,3 +3,23 @@
 .feeling-bar-middle {
   margin-top: 40%;
 }
+
+#location-prompt-confirm {
+  background: rgba(0,0,0, 0.8);
+  color:#FFF;
+  padding: 100px 30px 30px;
+  position: absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right: 0;
+  z-index: 9999;
+  font-size: 125%;
+}
+
+#location-prompt-confirm p {
+  margin-bottom: 50px;
+}
+#location-prompt-confirm span {
+  font-weight: bold;
+}

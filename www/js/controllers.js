@@ -35,6 +35,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('LocationPromptController', function($scope) {
+  $scope.showConfirmation = false;
   (function(google, gmaps){
     var map, marker;
     var geocoder = new gmaps.Geocoder();
@@ -47,12 +48,31 @@ angular.module('starter.controllers', [])
       draggable: false
     };
 
+    var getArea = function(latLng, components){
+        var streetNumber, route, postalCode, area;
+        for (var i in components) {
+            var component = components[i];
+            if (!area && component.types.indexOf("administrative_area_level_1") > -1) {
+                area = component.long_name;
+            }
+        }
+
+        return area;
+    }
 
     function initialize() {
         map = new gmaps.Map(document.getElementById("map-canvas"), mapOptions);
 
         gmaps.event.addListener(map, 'mousedown', function(event) {
-           // event.latLng;
+          geocoder.geocode({'location': event.latLng}, function(results, status){
+            if (status == gmaps.GeocoderStatus.OK && results[0]) {
+              var neighbourhood = getArea(event.latLng, results[0].address_components);
+              $scope.$apply(function(){
+                  $scope.showConfirmation = true;
+              });
+              document.getElementById('location-prompt-area').innerHTML = neighbourhood;
+            }
+          });
         });
     }
     gmaps.event.addDomListener(window, 'load', initialize);
