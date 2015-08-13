@@ -49,4 +49,18 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
+})
+
+.controller('LocationPromptCtrl', function($scope) {
+  var map, marker;
+  var geocoder = new gmaps.Geocoder();
+  var mapOptions = {
+    center: new gmaps.LatLng(-17.3224217,-47.438013),
+    zoom: 11
+  };
+
+  function initialize() {
+      map = new gmaps.Map(document.getElementById("map-canvas"), mapOptions);
+  }
+  gmaps.event.addDomListener(window, 'load', initialize);
 });
