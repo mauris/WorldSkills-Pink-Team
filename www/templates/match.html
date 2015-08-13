@@ -1,6 +1,8 @@
-<div class="match-results">
-	<h3 class="match-results__title">{{user.name}}, I found great matches for you, take a look:</h3>
+<div class="bar bar-header bar-stable">
+	<h1 class="title">{{user.name}}, I found great matches for you, take a look:</h1>
+</div>
 
+<ion-content class="has-header padding">
 	<ul class="match-entries">
 		<li class="match-entries__item" ng-repeat="angel in filteredUsers | orderBy: '-similarity'" ng-hide="user.id === angel.id">
 			<div class="match-entries__content">
@@ -15,4 +17,4 @@
 			<a class="match-entries__url" ng-href="#/user/{{angel.id}}"></a>
 		</li>
 	</ul>
-</div>
+</ion-content>
