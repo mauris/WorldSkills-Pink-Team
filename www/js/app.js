@@ -45,7 +45,7 @@ angular.module('pinkTeam', ['ionic', 'starter.controllers', 'starter.services'])
     controller: 'MatchController'
   })
 
-  .state('location.prompt', {
+  .state('location-prompt', {
     url: '/location-prompt',
     templateUrl: 'templates/location-prompt.html',
     controller: 'LocationPromptController'

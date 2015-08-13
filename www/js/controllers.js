@@ -35,15 +35,20 @@ angular.module('starter.controllers', [])
 })
 
 .controller('LocationPromptController', function($scope) {
-  var map, marker;
-  var geocoder = new gmaps.Geocoder();
-  var mapOptions = {
-    center: new gmaps.LatLng(-17.3224217,-47.438013),
-    zoom: 11
-  };
+  (function(google, gmaps){
+    var map, marker;
+    var geocoder = new gmaps.Geocoder();
+    var mapOptions = {
+      center: new gmaps.LatLng(-22.3224217,-53.438013),
+      zoom: 3,
+      streetViewControl: false,
+      mapTypeControl: false,
+      draggable: false
+    };
 
-  function initialize() {
-      map = new gmaps.Map(document.getElementById("map-canvas"), mapOptions);
-  }
-  gmaps.event.addDomListener(window, 'load', initialize);
+    function initialize() {
+        map = new gmaps.Map(document.getElementById("map-canvas"), mapOptions);
+    }
+    gmaps.event.addDomListener(window, 'load', initialize);
+  })(google, google.maps);
 });
