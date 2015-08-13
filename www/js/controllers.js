@@ -34,7 +34,7 @@ angular.module('starter.controllers', [])
   });
 })
 
-.controller('LocationPromptCtrl', function($scope) {
+.controller('LocationPromptController', function($scope) {
   var map, marker;
   var geocoder = new gmaps.Geocoder();
   var mapOptions = {
