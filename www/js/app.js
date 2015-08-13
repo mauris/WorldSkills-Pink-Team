@@ -49,7 +49,7 @@ angular.module('pinkTeam', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/location-prompt',
     templateUrl: 'templates/location-prompt.html',
     controller: 'LocationPromptController'
-  })
+  });
 
   $urlRouterProvider.otherwise('/');
 
