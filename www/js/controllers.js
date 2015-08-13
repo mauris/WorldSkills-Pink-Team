@@ -37,4 +37,28 @@ angular.module('pinkTeam.controllers', [])
   $scope.user = users.filter(function(obj) {
     return +$stateParams.id === +obj.id;
   })[0];
+})
+
+.controller('LocationPromptController', function($scope) {
+  (function(google, gmaps){
+    var map, marker;
+    var geocoder = new gmaps.Geocoder();
+    var mapOptions = {
+      center: new gmaps.LatLng(-22.3224217,-53.438013),
+      zoom: 3,
+      streetViewControl: false,
+      mapTypeControl: false,
+      draggable: false
+    };
+
+    function initialize() {
+        map = new gmaps.Map(document.getElementById("map-canvas"), mapOptions);
+    }
+    gmaps.event.addDomListener(window, 'load', initialize);
+  })(google, google.maps);
+})
+
+.controller('FeelingController', function($scope) {
+
 });
+
