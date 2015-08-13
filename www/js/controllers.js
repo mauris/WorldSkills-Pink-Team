@@ -47,13 +47,18 @@ angular.module('starter.controllers', [])
       draggable: false
     };
 
+
     function initialize() {
         map = new gmaps.Map(document.getElementById("map-canvas"), mapOptions);
+
+        gmaps.event.addListener(map, 'mousedown', function(event) {
+           // event.latLng;
+        });
     }
     gmaps.event.addDomListener(window, 'load', initialize);
   })(google, google.maps);
 })
 
 .controller('FeelingController', function($scope) {
-  
+
 });
