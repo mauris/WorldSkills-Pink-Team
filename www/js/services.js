@@ -1,4 +1,81 @@
-angular.module('starter.services', [])
+angular.module('pinkTeam.services', [])
+
+.factory('users', function() {
+  return [{
+    id: 123,
+    name: "Karen",
+    birthday: '10/05/1996',
+    gender: "female",
+    location: {lat:-23.516322, lng:-46.636582},
+    status: "married",
+    typeOfIssue: "Cervical",
+    treatment: "Surgery",
+    numberOfChildren: 0,
+    role: "angel",
+    state: "São Paulo"
+  },
+  {
+    id: 321,
+    name: "Felipe",
+    birthday: '12/10/1900',
+    gender: "male",
+    location: {lat:-23.516361, lng:-46.626068},
+    status: "single",
+    typeOfIssue: "Cervical",
+    treatment: "Surgery",
+    numberOfChildren: 2,
+    role: "angel",
+    state: "São Paulo"
+  },
+  {
+    id: 1234,
+    name: "Leonardo",
+    birthday: '10/05/1900',
+    gender: "female",
+    location: {lat:-23.521634, lng:-46.623837},
+    status: "single",
+    typeOfIssue: "Ovarian",
+    treatment: "Chemotherapy",
+    numberOfChildren: 0,
+    role: "angel",
+    state: "Rio de Janeiro"
+  },
+  {
+    id: 123123,
+    name: "Sam",
+    birthday: '10/05/1900',
+    gender: "male",
+    location: {lat:-23.521359, lng:-46.630478},
+    status: "single",
+    typeOfIssue: "Prostate",
+    treatment: "Surgery",
+    numberOfChildren: 1,
+    role: "angel",
+    state: "Minas Gerais"
+  },
+  // {
+  //     gender: "male",
+  //     location: {lat:-23.52677, lng:-46.664291},
+  //     status: "married",
+  //     typeOfIssue: "Pancreatic",
+  //     treatment: "Surgery",
+  //     numberOfChildren: 1,
+  //     role: "fighter"
+  // },
+
+  {
+    id: 41231,
+    name: "Natã",
+    birthday: '05/05/1800',
+    gender: "female",
+    location: {lat:-23.571691, lng:-46.646303},
+    status: "married",
+    typeOfIssue: "Stomach",
+    treatment: "Surgery",
+    numberOfChildren: 3,
+    role: "fighter"
+  }]
+})
 
 .factory('nearestNeighbor', function() {
   var recordSimilarity = function(a, b, fields) {
@@ -172,11 +249,14 @@ angular.module('starter.services', [])
     while (i < items.length) {
       item = items[i];
       _ref = recordSimilarity(item, query, fields), similarity = _ref[0], unmatchedFields = _ref[1];
-      // if (similarity > maxSimilarity) {
-        maxSimilarity = similarity;
+
+      item.similarity = 0;
+      if ( isFinite(similarity) ) {
         item.similarity = similarity;
-        result.push(item);
-      // }
+      }
+
+      maxSimilarity = similarity;
+      result.push(item);
       i++;
     }
     return callback(result, maxSimilarity, unmatchedFields);
@@ -187,62 +267,4 @@ angular.module('starter.services', [])
     comparisonMethods: comparisonMethods,
     findMostSimilar: findMostSimilar
   };
-})
-
-.factory('users', function() {
-  return [{
-      gender: "female",
-      location: {lat:-23.516322, lng:-46.636582},
-      status: "married",
-      typeOfIssue: "Cervical",
-      treatment: "Surgery",
-      numberOfChildren: 0,
-      role: "angel"
-  },
-  {
-      gender: "male",
-      location: {lat:-23.516361, lng:-46.626068},
-      status: "single",
-      typeOfIssue: "Cervical",
-      treatment: "Surgery",
-      numberOfChildren: 2,
-      role: "angel"
-  },
-  {
-      gender: "female",
-      location: {lat:-23.521634, lng:-46.623837},
-      status: "single",
-      typeOfIssue: "Ovarian",
-      treatment: "Chemotherapy",
-      numberOfChildren: 0,
-      role: "angel"
-  },
-  {
-      gender: "male",
-      location: {lat:-23.521359, lng:-46.630478},
-      status: "single",
-      typeOfIssue: "Prostate",
-      treatment: "Surgery",
-      numberOfChildren: 1,
-      role: "angel"
-  },
-  // {
-  //     gender: "male",
-  //     location: {lat:-23.52677, lng:-46.664291},
-  //     status: "married",
-  //     typeOfIssue: "Pancreatic",
-  //     treatment: "Surgery",
-  //     numberOfChildren: 1,
-  //     role: "fighter"
-  // },
-
-  {
-      gender: "female",
-      location: {lat:-23.571691, lng:-46.646303},
-      status: "married",
-          typeOfIssue: "Stomach",
-          treatment: "Surgery",
-          numberOfChildren: 3,
-          role: "fighter"
-  }]
 });

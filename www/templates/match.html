@@ -1,1 +1,18 @@
-Match
+<div class="match-results">
+	<h3 class="match-results__title">{{user.name}}, I found great matches for you, take a look:</h3>
+
+	<ul class="match-entries">
+		<li class="match-entries__item" ng-repeat="angel in filteredUsers | orderBy: '-similarity'" ng-hide="user.id === angel.id">
+			<div class="match-entries__content">
+				<h4 class="match-entries__name">{{angel.name}}</h4>
+				<span class="match-entries__age">{{angel.birthday | age}} years old</span>
+			</div>
+
+			<span class="match-entries__similarity" ng-if="angel.similarity">
+				{{angel.similarity * 100 | number: "0"}}% <span>match</span>
+			</span>
+
+			<a class="match-entries__url" ng-href="#/user/{{angel.id}}"></a>
+		</li>
+	</ul>
+</div>

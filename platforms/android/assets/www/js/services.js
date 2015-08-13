@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('pinkTeam.services', [])
 
 .factory('nearestNeighbor', function() {
   var recordSimilarity = function(a, b, fields) {
