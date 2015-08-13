@@ -49,6 +49,12 @@ angular.module('pinkTeam', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/location-prompt',
     templateUrl: 'templates/location-prompt.html',
     controller: 'LocationPromptController'
+  })
+
+  .state('feeling', {
+    url: '/feeling',
+    templateUrl: 'templates/feeling.html',
+    controller: 'FeelingController'
   });
 
   $urlRouterProvider.otherwise('/');

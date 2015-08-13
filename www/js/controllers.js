@@ -51,4 +51,8 @@ angular.module('starter.controllers', [])
     }
     gmaps.event.addDomListener(window, 'load', initialize);
   })(google, google.maps);
+})
+
+.controller('FeelingController', function($scope) {
+  
 });
