@@ -43,6 +43,7 @@ angular.module('starter.controllers', [])
       zoom: 3,
       streetViewControl: false,
       mapTypeControl: false,
+      zoomControl: false,
       draggable: false
     };
 
