@@ -97,6 +97,10 @@ angular.module('pinkTeam.controllers', [])
     $location.path("/feeling");
   };
 
+  $scope.nextButtonClick = function() {
+    $location.path("/feeling");
+  }
+
   (function(google, gmaps){
     var map, marker;
     var geocoder = new gmaps.Geocoder();
@@ -151,21 +155,25 @@ angular.module('pinkTeam.controllers', [])
 .controller('NicknameController', function($scope, $rootScope, $location) {
   $scope.nick = {name: ''};
   $scope.submitForm = function(){
-    $rootScope.nick = $scope.nick.name;
+    $rootScope.user = {
+      name: $scope.nick.name
+    };
     $location.path("/role");
   }
 })
 
 .controller('RoleController', function($scope, $rootScope) {
-  $scope.nickname = $rootScope.nick;
+  $scope.nickname = $rootScope.user.name;
 })
 
-.controller('AngelController', function($scope) {
+.controller('AngelController', function($scope, $rootScope) {
   console.log('you are angel');
+  $rootScope.user.role = "angel";
 })
 
 .controller('FighterController', function($scope) {
   console.log('you are superador');
+  $rootScope.user.role = "fighter";
 })
 
 .controller('FighterRequestController', function($scope) {
