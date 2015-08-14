@@ -63,13 +63,13 @@ angular.module('pinkTeam.controllers', [])
   });
 })
 
-.controller('UserController', function($scope, $rootScope, $stateParams, users) {
+.controller('UserController', function($scope, $rootScope, $stateParams, $location, users) {
   $scope.user = users.filter(function(obj) {
     return +$stateParams.id === +obj.id;
   })[0];
 
   $scope.selectAngel = function() {
-
+    $location.path('/patients-waiting');
   };
 })
 
