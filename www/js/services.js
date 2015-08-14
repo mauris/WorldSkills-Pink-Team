@@ -137,6 +137,7 @@ angular.module('pinkTeam.services', [])
       typeOfIssue: "Stomach",
       treatment: "Surgery",
       numberOfChildren: 3,
+      state: "São Paulo",
       role: "fighter",
       state: "Acre",
       religion: "Catholic",

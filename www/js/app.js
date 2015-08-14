@@ -97,6 +97,13 @@ angular.module('pinkTeam', [
     templateUrl: 'templates/genre.html',
     controller: 'FighterController'
   })
+
+
+  .state('fighter-request', {
+    url: '/fighter-request',
+    templateUrl: 'templates/fighter-request.html',
+    controller: 'FighterRequestController'
+  })
   ;
 
   $urlRouterProvider.otherwise('/');
