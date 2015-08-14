@@ -1,4 +1,4 @@
-angular.module('pinkTeam.controllers', [])
+angular.module('pinkTeam.controllers', ["ngCordova"])
 
 .controller('HomeController', function($scope, $rootScope) {
 })
@@ -92,6 +92,8 @@ angular.module('pinkTeam.controllers', [])
 
 .controller('NicknameController', function($scope, $rootScope, $location) {
   $scope.nick = {name: ''};
+
+  document.getElementById('nameTextbox').click();
 
   $scope.submitForm = function() {
     $rootScope.user.name = $scope.nick.name;
