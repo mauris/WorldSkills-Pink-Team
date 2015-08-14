@@ -1,85 +1,92 @@
 angular.module('pinkTeam.services', [])
 
 .factory('users', function() {
-  return [{
-    id: 123,
-    name: "Karen",
-    birthday: '10/05/1996',
-    gender: "female",
-    location: {lat:-23.516322, lng:-46.636582},
-    status: "married",
-    typeOfIssue: "Cervical",
-    treatment: "Surgery",
-    numberOfChildren: 0,
-    role: "angel",
-    state: "São Paulo"
-  },
-  {
-    id: 321,
-    name: "Felipe",
-    birthday: '12/10/1900',
-    gender: "male",
-    location: {lat:-23.516361, lng:-46.626068},
-    status: "single",
-    typeOfIssue: "Cervical",
-    treatment: "Surgery",
-    numberOfChildren: 2,
-    role: "angel",
-    state: "São Paulo"
-  },
-  {
-    id: 1234,
-    name: "Leonardo",
-    birthday: '10/05/1900',
-    gender: "female",
-    location: {lat:-23.521634, lng:-46.623837},
-    status: "single",
-    typeOfIssue: "Ovarian",
-    treatment: "Chemotherapy",
-    numberOfChildren: 0,
-    role: "angel",
-    state: "Rio de Janeiro"
-  },
-  {
-    id: 123123,
-    name: "Sam",
-    birthday: '10/05/1900',
-    gender: "male",
-    location: {lat:-23.521359, lng:-46.630478},
-    status: "single",
-    typeOfIssue: "Prostate",
-    treatment: "Surgery",
-    numberOfChildren: 1,
-    role: "angel",
-    state: "Minas Gerais"
-  },
-  // {
-  //     gender: "male",
-  //     location: {lat:-23.52677, lng:-46.664291},
-  //     status: "married",
-  //     typeOfIssue: "Pancreatic",
-  //     treatment: "Surgery",
-  //     numberOfChildren: 1,
-  //     role: "fighter"
-  // },
+  return [
+    {
+      id: 123,
+      name: "Karen",
+      birthday: '10/05/1996',
+      gender: "female",
+      location: {lat:-23.516322, lng:-46.636582},
+      status: "married",
+      typeOfIssue: "Cervical",
+      treatment: "Surgery",
+      numberOfChildren: 0,
+      role: "angel",
+      state: "São Paulo"
+    },
+    {
+      id: 321,
+      name: "Felipe",
+      birthday: '12/10/1998',
+      gender: "male",
+      location: {lat:-23.516361, lng:-46.626068},
+      status: "single",
+      typeOfIssue: "Cervical",
+      treatment: "Surgery",
+      numberOfChildren: 2,
+      role: "angel",
+      state: "São Paulo"
+    },
+    {
+      id: 1234,
+      name: "Leonardo",
+      birthday: '10/05/1993',
+      gender: "female",
+      location: {lat:-23.521634, lng:-46.623837},
+      status: "single",
+      typeOfIssue: "Ovarian",
+      treatment: "Chemotherapy",
+      numberOfChildren: 0,
+      role: "angel",
+      state: "Rio de Janeiro"
+    },
+    {
+      id: 123123,
+      name: "Sam",
+      birthday: '10/05/1993',
+      gender: "male",
+      location: {lat:-23.521359, lng:-46.630478},
+      status: "single",
+      typeOfIssue: "Prostate",
+      treatment: "Surgery",
+      numberOfChildren: 1,
+      role: "angel",
+      state: "Minas Gerais"
+    },
+    // {
+    //     gender: "male",
+    //     location: {lat:-23.52677, lng:-46.664291},
+    //     status: "married",
+    //     typeOfIssue: "Pancreatic",
+    //     treatment: "Surgery",
+    //     numberOfChildren: 1,
+    //     role: "fighter"
+    // },
 
-  {
-    id: 41231,
-    name: "Natã",
-    birthday: '05/05/1800',
-    gender: "female",
-    location: {lat:-23.571691, lng:-46.646303},
-    status: "married",
-    typeOfIssue: "Stomach",
-    treatment: "Surgery",
-    numberOfChildren: 3,
-    role: "fighter"
-  }]
+    {
+      id: 41231,
+      name: "Natã",
+      birthday: '05/05/1800',
+      gender: "female",
+      location: {lat:-23.571691, lng:-46.646303},
+      status: "married",
+      typeOfIssue: "Stomach",
+      treatment: "Surgery",
+      numberOfChildren: 3,
+      role: "fighter"
+    }
+  ]
 })
 
 .factory('nearestNeighbor', function() {
   var recordSimilarity = function(a, b, fields) {
-    var i, measure, name, similarity, sum, unmatchedFields;
+    var i;
+    var measure;
+    var name;
+    var similarity;
+    var sum;
+    var unmatchedFields;
 
     sum = 0;
     i = 0;
@@ -97,9 +104,11 @@ angular.module('pinkTeam.services', [])
       } else {
         similarity = measure(a[name], b[name]);
       }
+
       if (similarity < 1.0) {
         unmatchedFields[name] = similarity;
       }
+
       sum += similarity;
       i++;
     }

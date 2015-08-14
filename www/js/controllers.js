@@ -3,7 +3,22 @@ angular.module('pinkTeam.controllers', [])
 .controller('HomeController', function($scope, $rootScope) {
 })
 
-.controller('MatchController', function($scope, $rootScope, $filter, nearestNeighbor, users) {
+.controller('MatchController', function($scope, $rootScope, $filter, $timeout, $interval,  $ionicLoading, $stateParams, nearestNeighbor, users) {
+  // Loading
+  $scope.isLoading = $stateParams.isLoading ? true : false;
+  $scope.loadingProgress = 10;
+
+  var duration = 1000;
+  var loading = $interval(function() {
+    $scope.loadingProgress = $scope.loadingProgress + 20;
+
+    if ($scope.loadingProgress >= 100) {
+      $interval.cancel(loading);
+      $scope.isLoading = false;
+    }
+  }, duration);
+
+  // Current User
   $rootScope.user = {
     name: 'Joana',
     birthday: '30/05/1900',
@@ -41,6 +56,7 @@ angular.module('pinkTeam.controllers', [])
 
 .controller('LocationPromptController', function($scope) {
   $scope.showConfirmation = false;
+
   (function(google, gmaps){
     var map, marker;
     var geocoder = new gmaps.Geocoder();
@@ -54,15 +70,15 @@ angular.module('pinkTeam.controllers', [])
     };
 
     var getArea = function(latLng, components){
-        var streetNumber, route, postalCode, area;
-        for (var i in components) {
-            var component = components[i];
-            if (!area && component.types.indexOf("administrative_area_level_1") > -1) {
-                area = component.long_name;
-            }
+      var streetNumber, route, postalCode, area;
+      for (var i in components) {
+        var component = components[i];
+        if (!area && component.types.indexOf("administrative_area_level_1") > -1) {
+          area = component.long_name;
         }
+      }
 
-        return area;
+      return area;
     }
 
     map = new gmaps.Map(document.getElementById("map-canvas"), mapOptions);

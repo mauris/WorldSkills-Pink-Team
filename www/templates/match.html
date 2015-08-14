@@ -18,3 +18,12 @@
 		</li>
 	</ul>
 </ion-content>
+
+<div class="loading-container" ng-class="{'visible active': isLoading}">
+	<div class="loading">
+		<i class="icon ion-refresh"></i>
+		<span class="loading-title">Loading...</span>
+
+		<span class="loading-progress">{{loadingProgress}}%</span>
+	</div>
+</div>

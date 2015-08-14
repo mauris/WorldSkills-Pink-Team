@@ -5,7 +5,13 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('pinkTeam', ['ionic', 'pinkTeam.controllers', 'pinkTeam.services', 'pinkTeam.filters'])
+angular.module('pinkTeam', [
+  'ionic',
+  'pinkTeam.controllers',
+  'pinkTeam.services',
+  'pinkTeam.filters',
+  'ngMap'
+])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -40,7 +46,7 @@ angular.module('pinkTeam', ['ionic', 'pinkTeam.controllers', 'pinkTeam.services'
   })
 
   .state('match', {
-    url: '/match',
+    url: '/match?isLoading',
     templateUrl: 'templates/match.html',
     controller: 'MatchController'
   })
@@ -70,5 +76,4 @@ angular.module('pinkTeam', ['ionic', 'pinkTeam.controllers', 'pinkTeam.services'
   });
 
   $urlRouterProvider.otherwise('/');
-
 });

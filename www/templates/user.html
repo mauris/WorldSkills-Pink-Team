@@ -4,8 +4,20 @@
 </div>
 
 <ion-content class="has-header">
+	<span class="padding">{{user.birthday | age}} years old</span>
+
+	<map class="user-maps"
+		zoom="11"
+	  center="[{{user.location.lat}}, {{user.location.lng}}]"
+	  draggable="false">
+	</map>
+
 	<ul class="list padding">
-		<li>{{user.birthday | age}} years old</li>
+		<li>Gender: {{user.gender}}</li>
+		<li>State: {{user.state}}</li>
+		<li>Type of the cancer: {{user.typeOfIssue}}</li>
+		<li>Treatment: {{user.treatment}}</li>
+		<li ng-if="user.numberOfChildren">Children: {{user.numberOfChildren}}</li>
 	</ul>
 </ion-content>
 

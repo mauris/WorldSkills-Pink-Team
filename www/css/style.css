@@ -1,3 +1,31 @@
+/* Loading */
+
+.loading-container {
+	background-color: #fff;
+}
+
+.loading-container .loading {
+	background-color: transparent;
+	color: #000;
+	text-transform: uppercase;
+}
+
+.loading-container .loading .icon {
+	display: block;
+	font-size: 40px;
+}
+
+.loading-title {
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+
+.loading-progress {
+	display: block;
+	font-size: 40px;
+}
+
 /* Match Results */
 
 .match-results__title {
@@ -59,9 +87,21 @@
 	height: 100%;
 }
 
+/* User */
+
+.user-maps {
+	display: block;
+	width: 100%;
+	height: 200px;
+}
+
+/* Feeling */
+
 .feeling-bar-middle {
   margin-top: 40%;
 }
+
+/* Location */
 
 #location-prompt-confirm {
   background: rgba(0,0,0, 0.8);
