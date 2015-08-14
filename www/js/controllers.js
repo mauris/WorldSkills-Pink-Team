@@ -138,10 +138,18 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   $rootScope.user.role = "fighter";
 })
 
-.controller('FighterRequestController', function($scope) {
+.controller('FighterRequestController', function($scope, $rootScope, $timeout) {
   $scope.fighter = {
     name: 'Bruno Venus'
   }
+
+  $scope.showFighterRequest = false;
+
+  $timeout(function(){
+    $scope.$apply(function(){
+      $scope.showFighterRequest = true;
+    })
+  }, 5000);
 })
 
 .controller('FeelingReplyController', function($scope) {
