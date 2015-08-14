@@ -28,7 +28,22 @@ angular.module('pinkTeam.controllers', [])
     typeOfIssue: 'Cervical',
     treatment: 'Surgery',
     numberOfChildren: 1,
-    role: 'fighter'
+    state: "São Paulo",
+    role: 'fighter',
+    religion: "Catholic",
+    music: [
+      "Trance music",
+      "Fall Out Boy",
+      "Katy Perry",
+      "David Archuleta",
+      "The Fray"
+    ],
+    movies: [
+      "Spirited Away",
+      "We Were Soldiers",
+      "Zombieland",
+      "Empire of the Sun"
+    ]
   };
 
   var query = $rootScope.user;
