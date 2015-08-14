@@ -82,3 +82,8 @@
 #location-prompt-confirm span {
   font-weight: bold;
 }
+
+#form_nickname input{
+    font-size: x-large;
+    border: solid 2px;
+}
