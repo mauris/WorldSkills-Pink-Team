@@ -12,6 +12,7 @@ angular.module('pinkTeam', [
   'pinkTeam.services',
   'pinkTeam.filters',
   'ngMap',
+  'ngAnimate',
   'ngCordova'
 ])
 

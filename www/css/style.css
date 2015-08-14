@@ -331,10 +331,33 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     stroke-dashoffset: 187;
     transform: rotate(450deg);
   }
+}
 
 .box-bottom{
     background-color: #ff9800;
     margin-left: 5px;
     margin-right: 5px;
     height: 30%;
+}
+
+
+.card.ng-hide-remove  {
+  animation: 1s slideIn ease;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  99% {
+    opacity: 1;
+    max-height: 1000px;
+  }
+
+  100% {
+    opacity: 1;
+    max-height: auto;
+  }
 }
