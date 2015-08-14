@@ -92,6 +92,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
         $rootScope.user.location.lng = $scope.position.lng;
 
         $scope.isLoading = false;
+        $scope.hasDoneLocationFetch = true; 
 
       }, function(err) {
         // error
