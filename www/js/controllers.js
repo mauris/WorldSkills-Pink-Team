@@ -92,14 +92,18 @@ angular.module('pinkTeam.controllers', [])
   $scope.showConfirmation = false;
   $scope.showLoading = false;
 
+  $scope.nextButtonClick = function() {
+    if ($rootScope.user.role === 'fighter') {
+      $location.path("/feeling");
+    } else {
+      $location.path("/fighter-request");
+    }
+  }
+
   $scope.skipButtonClick = function() {
     $rootScope.locationPromptMessage = 'That\'s okay. Last question: How are you feeling today?';
-    $location.path("/feeling");
+    $scope.nextButtonClick();
   };
-
-  $scope.nextButtonClick = function() {
-    $location.path("/feeling");
-  }
 
   (function(google, gmaps){
     var map, marker;
