@@ -39,8 +39,14 @@ angular.module('pinkTeam.controllers', [])
   })[0];
 })
 
-.controller('LocationPromptController', function($scope) {
+.controller('LocationPromptController', function($scope, $location, $rootScope) {
   $scope.showConfirmation = false;
+  $scope.showLoading = false;
+  $scope.skipButtonClick = function() {
+    $rootScope.locationPromptMessage = 'That\'s okay. Last question: How are you feeling today?';
+    $location.path("/feeling");
+  };
+
   (function(google, gmaps){
     var map, marker;
     var geocoder = new gmaps.Geocoder();
@@ -68,11 +74,15 @@ angular.module('pinkTeam.controllers', [])
     map = new gmaps.Map(document.getElementById("map-canvas"), mapOptions);
 
     gmaps.event.addListener(map, 'mousedown', function(event) {
+    $scope.$apply(function(){
+      $scope.showLoading = true;
+    });
       geocoder.geocode({'location': event.latLng}, function(results, status){
         if (status == gmaps.GeocoderStatus.OK && results[0]) {
           var neighbourhood = getArea(event.latLng, results[0].address_components);
           $scope.$apply(function(){
             $scope.showConfirmation = true;
+            $scope.showLoading = false;
           });
           document.getElementById('location-prompt-area').innerHTML = neighbourhood;
         }
@@ -81,8 +91,11 @@ angular.module('pinkTeam.controllers', [])
   })(google, google.maps);
 })
 
-.controller('FeelingController', function($scope) {
-
+.controller('FeelingController', function($scope, $rootScope) {
+  $scope.message = 'Thanks! One last question: How are you feeling today?';
+  if ($rootScope.locationPromptMessage) {
+    $scope.message = $rootScope.locationPromptMessage;
+  }
 })
 
 .controller('FeelingReplyController', function($scope) {
