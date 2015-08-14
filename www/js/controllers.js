@@ -82,6 +82,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
     $ionicLoading.hide();
   };
 
+  $scope.hasDoneLocationFetch = false;
 
   $scope.getLocation = function() {
     $scope.showLoading();

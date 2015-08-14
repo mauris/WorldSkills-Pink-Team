@@ -17,8 +17,12 @@
   </map>
 </ion-content>
 
-<button ng-click="skipButtonClick()" class="location-maps-button button button-full button-balanced">
+<button ng-click="skipButtonClick()" ng-hide="hasDoneLocationFetch" class="location-maps-button button button-full button-balanced">
   <div class="title">I’d rather not say</div>
 </button>
 
-<button ng-click="getLocation()" class="location-maps-my-location icons ion-android-locate"></button>
+<button ng-click="nextButtonClick()" ng-show="hasDoneLocationFetch" class="location-maps-button button button-full button-balanced">
+  <div class="title">Confirm my location</div>
+</button>
+
+<button ng-click="hasDoneLocationFetch = true;getLocation()" class="location-maps-my-location icons ion-android-locate"></button>
