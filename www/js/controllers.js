@@ -100,4 +100,8 @@ angular.module('pinkTeam.controllers', [])
 
 .controller('FeelingReplyController', function($scope) {
   $scope.name = "John";
+})
+
+.controller('PatientsWaitingController', function($scope, $rootScope) {
+  
 });
