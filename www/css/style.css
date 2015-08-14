@@ -259,3 +259,7 @@ text-decoration: none;
   margin:0px auto;
   display: block;
 }
+
+.item-divider {
+  background: #FFF;
+}
