@@ -109,12 +109,14 @@ angular.module('pinkTeam.controllers', [])
     });
       geocoder.geocode({'location': event.latLng}, function(results, status){
         if (status == gmaps.GeocoderStatus.OK && results[0]) {
-          var neighbourhood = getArea(event.latLng, results[0].address_components);
-          $scope.$apply(function(){
-            $scope.showConfirmation = true;
-            $scope.showLoading = false;
-          });
-          document.getElementById('location-prompt-area').innerHTML = neighbourhood;
+          var area = getArea(event.latLng, results[0].address_components);
+          if (area) {
+            $scope.$apply(function(){
+              $scope.showConfirmation = true;
+              $scope.showLoading = false;
+            });
+            document.getElementById('location-prompt-area').innerHTML = area;
+          }
         }
       });
     });
