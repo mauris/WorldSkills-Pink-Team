@@ -43,7 +43,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
     return +$stateParams.id === +obj.id;
   })[0];
 
-  if (window.cordova && false) {
+  if (window.cordova) {
     $scope.scheduleSingleNotification = function () {
       $cordovaLocalNotification.schedule({
         id: 1,
@@ -92,7 +92,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
         $rootScope.user.location.lng = $scope.position.lng;
 
         $scope.isLoading = false;
-        $scope.hasDoneLocationFetch = true; 
+        $scope.hasDoneLocationFetch = true;
 
       }, function(err) {
         // error
