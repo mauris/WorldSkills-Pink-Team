@@ -34,7 +34,7 @@ angular.module('pinkTeam', ['ionic', 'pinkTeam.controllers', 'pinkTeam.services'
   // Each tab has its own nav history stack:
 
   .state('home', {
-    url: '/',
+    url: '/home',
     templateUrl: 'templates/home.html',
     controller: 'HomeController'
   })
@@ -67,7 +67,29 @@ angular.module('pinkTeam', ['ionic', 'pinkTeam.controllers', 'pinkTeam.services'
     url: '/feeling-reply',
     templateUrl: 'templates/feeling-reply.html',
     controller: 'FeelingReplyController'
-  });
+  })
+
+  .state('nickname', {
+    url: '/',
+    templateUrl: 'templates/nickname.html',
+    controller: 'NicknameController'
+  })
+  .state('role', {
+    url: '/role',
+    templateUrl: 'templates/role.html',
+    controller: 'RoleController'
+  })
+  .state('angel', {
+    url: '/angel',
+    templateUrl: 'templates/genre.html',
+    controller: 'AngelController'
+  })
+  .state('fighter', {
+    url: '/fighter',
+    templateUrl: 'templates/genre.html',
+    controller: 'FighterController'
+  })
+  ;
 
   $urlRouterProvider.otherwise('/');
 
