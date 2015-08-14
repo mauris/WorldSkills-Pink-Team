@@ -43,7 +43,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
     return +$stateParams.id === +obj.id;
   })[0];
 
-  if (window.cordova) {
+  if (window.cordova && false) {
     $scope.scheduleSingleNotification = function () {
       $cordovaLocalNotification.schedule({
         id: 1,
@@ -117,8 +117,6 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
 
 .controller('NicknameController', function($scope, $rootScope, $location) {
   $scope.nick = {name: ''};
-
-  document.getElementById('nameTextbox').click();
 
   $scope.submitForm = function() {
     $rootScope.user.name = $scope.nick.name;
