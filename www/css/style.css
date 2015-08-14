@@ -131,8 +131,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	        align-items: center;
 
 	padding: 20px 15px;
-	border: 1px solid;
+	background:#FFF;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 	margin-bottom: 15px;
+  border-radius: 3px;
 }
 
 .match-entries__name {
@@ -186,7 +188,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .location-maps {
   display: block;
 	width: 100%;
-	height: 62vh;
+	height: 70vh;
 }
 
 .location-maps-my-location {
@@ -204,15 +206,19 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   width: 70px;
   height: 70px;
   box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
-  transition: transform 150ms cubic-bezier(.4,0,1,1);
+  transition: box-shadow 150ms cubic-bezier(0,0,.2,1);
+  cursor: pointer;
 }
 
-.location-maps-my-location:active {
+.location-maps-my-location:hover {
   box-shadow: 0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32);
-  transition: box-shadow 150ms cubic-bezier(0,0,.2,1);
 }
 
 .location-maps-button {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border: none!important;
   margin: 0!important;
 }
 
@@ -250,4 +256,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 .gm-style-cc {
   display: none;
+}
+
+.feeling-icon {
+  max-width:40%;
+  padding: 10px;
+  margin:0px auto;
+  display: block;
+}
+
+.item-divider {
+  background: #FFF;
 }
