@@ -149,7 +149,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
 
 .controller('FighterRequestController', function($scope) {
   $scope.fighter = {
-    name: 'Amigo'
+    name: 'Bruno Venus'
   }
 })
 

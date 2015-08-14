@@ -26,8 +26,9 @@
 
 <div class="loading-container" ng-class="{'visible active': isLoading}">
 	<div class="loading">
-		<i class="icon ion-refresh"></i>
-		<span class="loading-title">Loading...</span>
+		<span class="loading-title"><svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+   <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+</svg></span>
 
 		<span class="loading-progress">{{loadingProgress}}%</span>
 	</div>
