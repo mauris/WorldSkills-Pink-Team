@@ -239,7 +239,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     padding-top: 200px;
 }
 .text-box img{
-    padding-top: 150px;
+    padding-top: 200px;
 }
 .fighter-box{
     background-color: #ff9800;
@@ -254,7 +254,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     background-color: #ffb300;
 }
 .footer-buttons{
-    height: 70%;
+    height: 69%;
+    padding: 0px
 }
 .footer-buttons a{
     text-decoration: none;
@@ -275,7 +276,5 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 .box-bottom{
     background-color: #ff9800;
-    margin-left: 5px;
-    margin-right: 5px;
     height: 30%;
 }
