@@ -41,6 +41,7 @@ angular.module('pinkTeam.controllers', [])
 
 .controller('LocationPromptController', function($scope, $location, $rootScope) {
   $scope.showConfirmation = false;
+  $scope.showLoading = false;
   $scope.skipButtonClick = function() {
     $rootScope.locationPromptMessage = 'That\'s okay. Last question: How are you feeling today?';
     $location.path("/feeling");
@@ -73,12 +74,15 @@ angular.module('pinkTeam.controllers', [])
     map = new gmaps.Map(document.getElementById("map-canvas"), mapOptions);
 
     gmaps.event.addListener(map, 'mousedown', function(event) {
+    $scope.$apply(function(){
+      $scope.showLoading = true;
+    });
       geocoder.geocode({'location': event.latLng}, function(results, status){
         if (status == gmaps.GeocoderStatus.OK && results[0]) {
           var neighbourhood = getArea(event.latLng, results[0].address_components);
           $scope.$apply(function(){
             $scope.showConfirmation = true;
-
+            $scope.showLoading = false;
           });
           document.getElementById('location-prompt-area').innerHTML = neighbourhood;
         }

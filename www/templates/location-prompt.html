@@ -11,6 +11,11 @@
 </ion-content>
 
 <div id="map-canvas" style="position:absolute; top: 140px; bottom: 43px; left: 0; right: 0;"></div>
+<div ng-show="showLoading">
+  <p>
+    Loading
+  </p>
+</div>
 <div id="location-prompt-confirm" ng-show="showConfirmation">
   <p>
     Do you stay in <span id="location-prompt-area"></span>?
