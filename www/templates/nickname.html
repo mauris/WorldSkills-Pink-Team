@@ -1,9 +1,11 @@
-<h1>How may I call You?</h1>
+<ion-content class="padding">
+    <header class="header">
+    	<h1 class="header__title"><span>Hello.</span> How may I call you?</h1>
+    </header>
 
-<div class="row row-center">
-  <div class="col">
-  	<form id="form_nickname">
-  	    <input name= "nickname" type="text" placeholder="Your nickname here" ng-model="nickname" />
-  	</form>
-  </div>
-</div>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input name="nickname" ng-model="nick.name" type="text" placeholder="Your nickname here">
+      </label>
+    </div>
+</ion-content>

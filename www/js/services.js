@@ -4,7 +4,7 @@ angular.module('pinkTeam.services', [])
   return [
     {
       id: 123,
-      name: "Karen",
+      name: "Karen Maple",
       birthday: '10/05/1996',
       gender: "female",
       location: {lat:-23.516322, lng:-46.636582},
@@ -13,11 +13,27 @@ angular.module('pinkTeam.services', [])
       treatment: "Surgery",
       numberOfChildren: 0,
       role: "angel",
-      state: "São Paulo"
+      state: "São Paulo",
+      religion: "Catholic",
+      music: [
+        "Alternative",
+        "Fall Out Boy",
+        "David Archuleta",
+        "The Fray",
+        "Muse"
+      ],
+      movies: [
+        "Spirited Away",
+        "We Were Soldiers",
+        "Zombieland",
+        "Batman: The Dark Knight",
+        "Harry Potter",
+        "Empire of the Sun"
+      ]
     },
     {
       id: 321,
-      name: "Felipe",
+      name: "Felipe Mentos",
       birthday: '12/10/1998',
       gender: "male",
       location: {lat:-23.516361, lng:-46.626068},
@@ -26,11 +42,26 @@ angular.module('pinkTeam.services', [])
       treatment: "Surgery",
       numberOfChildren: 2,
       role: "angel",
-      state: "São Paulo"
+      state: "São Paulo",
+      religion: "Christian",
+      music: [
+        "My Chemical Romance",
+        "Fall Out Boy",
+        "Cascada",
+        "David Archuleta",
+        "The Fray"
+      ],
+      movies: [
+        "We Were Soldiers",
+        "Zombieland",
+        "Call of Duty",
+        "Batman: The Dark Knight",
+        "Empire of the Sun"
+      ]
     },
     {
       id: 1234,
-      name: "Leonardo",
+      name: "Leonardo Adams",
       birthday: '10/05/1993',
       gender: "female",
       location: {lat:-23.521634, lng:-46.623837},
@@ -39,12 +70,27 @@ angular.module('pinkTeam.services', [])
       treatment: "Chemotherapy",
       numberOfChildren: 0,
       role: "angel",
-      state: "Rio de Janeiro"
+      state: "Rio de Janeiro",
+      religion: "Catholic",
+      music: [
+        "Rock",
+        "Adam Levine",
+        "Katy Perry",
+        "David Archuleta",
+        "The Fray"
+      ],
+      movies: [
+        "Spirited Away",
+        "We Were Soldiers",
+        "Zombieland",
+        "The Transporter",
+        "Empire of the Sun"
+      ]
     },
     {
       id: 123123,
-      name: "Sam",
-      birthday: '10/05/1993',
+      name: "Sam Porco",
+      birthday: '10/05/1973',
       gender: "male",
       location: {lat:-23.521359, lng:-46.630478},
       status: "single",
@@ -52,7 +98,24 @@ angular.module('pinkTeam.services', [])
       treatment: "Surgery",
       numberOfChildren: 1,
       role: "angel",
-      state: "Minas Gerais"
+      state: "Minas Gerais",
+      religion: "Itchias",
+      music: [
+        "Jazz",
+        "Maroon 5",
+        "Fall Out Boy",
+        "Katy Perry",
+        "David Archuleta",
+        "The Fray"
+      ],
+      movies: [
+        "Spirited Away",
+        "We Were Soldiers",
+        "Harry Potter",
+        "Call of Duty",
+        "Zombieland",
+        "Empire of the Sun"
+      ]
     },
     // {
     //     gender: "male",
@@ -66,16 +129,31 @@ angular.module('pinkTeam.services', [])
 
     {
       id: 41231,
-      name: "Natã",
+      name: "Natã Santos",
       birthday: '05/05/1800',
-      gender: "female",
+      gender: "male",
       location: {lat:-23.571691, lng:-46.646303},
       status: "married",
       typeOfIssue: "Stomach",
       treatment: "Surgery",
       numberOfChildren: 3,
       role: "fighter",
-      state: "Acre"
+      state: "Acre",
+      religion: "Catholic",
+      music: [
+        "Trance music",
+        "Fall Out Boy",
+        "Katy Perry",
+        "David Archuleta",
+        "The Fray"
+      ],
+      movies: [
+        "Spirited Away",
+        "The LEGO Movie",
+        "We Were Soldiers",
+        "Zombieland",
+        "Empire of the Sun"
+      ]
     }
   ]
 })

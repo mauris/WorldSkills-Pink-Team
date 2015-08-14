@@ -1,26 +1,71 @@
 <div class="bar bar-header bar-stable">
-  <a class="button button-icon icon ion-ios-arrow-thin-left" href="#/match"></a>
+  <a class="button button-icon icon ion-ios-arrow-back" href="#/match"></a>
   <h1 class="title">{{user.name}}</h1>
 </div>
 
-<ion-content class="has-header">
-	<span class="padding">{{user.birthday | age}} years old</span>
+<ion-content class="has-header has-footer">
 
 	<map class="user-maps"
 		zoom="11"
 	  center="[{{user.location.lat}}, {{user.location.lng}}]"
+    street-view-control="false"
+    zoom-control="false"
+    map-type-control="false"
 	  draggable="false">
 	</map>
 
-	<ul class="list padding">
-		<li>Gender: {{user.gender}}</li>
-		<li>State: {{user.state}}</li>
-		<li>Type of the cancer: {{user.typeOfIssue}}</li>
-		<li>Treatment: {{user.treatment}}</li>
-		<li ng-if="user.numberOfChildren">Children: {{user.numberOfChildren}}</li>
-	</ul>
+  <div class="list">
+    <a class="item item-icon-left" href="#">
+      <i class="icon ion-person"></i>
+      Age
+      <span class="item-note">
+        {{user.birthday | age}} years old
+      </span>
+    </a>
+
+    <a class="item item-icon-left" href="#">
+      <i class="icon ion-{{user.gender}}"></i>
+      Gender
+      <span class="item-note">
+        {{user.gender}}
+      </span>
+    </a>
+
+    <a class="item item-icon-left" href="#">
+      <i class="icon ion-location"></i>
+      State
+      <span class="item-note">
+        {{user.state}}
+      </span>
+    </a>
+    
+    <a class="item item-icon-left" href="#">
+      <i class="icon ion-help-circled"></i>
+      Cancer Type
+      <span class="item-note">
+        {{user.typeOfIssue}}
+      </span>
+    </a>
+
+    <a class="item item-icon-left" href="#">
+      <i class="icon ion-heart"></i>
+      Treatment
+      <span class="item-note">
+        {{user.treatment}}
+      </span>
+    </a>
+
+    <a class="item item-icon-left" href="#">
+      <i class="icon ion-ios-body"></i>
+      Number of Children
+      <span class="item-note">
+        {{user.numberOfChildren}}
+      </span>
+    </a>
+
+  </div>
 </ion-content>
 
-<div class="bar bar-footer bar-balanced">
-  <div class="title">I found my angel!</div>
-</div>
+<button ng-click="selectAngel()" class="bar bar-footer bar-balanced">
+  <div class="title"><i class="icon ion-android-happy"></i> I found my angel!</div>
+</button>

@@ -8,9 +8,9 @@ angular.module('pinkTeam.controllers', [])
   $scope.isLoading = $stateParams.isLoading ? true : false;
   $scope.loadingProgress = 10;
 
-  var duration = 1000;
+  var duration = 50;
   var loading = $interval(function() {
-    $scope.loadingProgress = $scope.loadingProgress + 20;
+    $scope.loadingProgress = $scope.loadingProgress + Math.ceil(Math.random() * 5 + 2);
 
     if ($scope.loadingProgress >= 100) {
       $interval.cancel(loading);
@@ -28,7 +28,22 @@ angular.module('pinkTeam.controllers', [])
     typeOfIssue: 'Cervical',
     treatment: 'Surgery',
     numberOfChildren: 1,
-    role: 'fighter'
+    state: "São Paulo",
+    role: 'fighter',
+    religion: "Catholic",
+    music: [
+      "Trance music",
+      "Fall Out Boy",
+      "Katy Perry",
+      "David Archuleta",
+      "The Fray"
+    ],
+    movies: [
+      "Spirited Away",
+      "We Were Soldiers",
+      "Zombieland",
+      "Empire of the Sun"
+    ]
   };
 
   var query = $rootScope.user;
@@ -48,7 +63,7 @@ angular.module('pinkTeam.controllers', [])
   });
 })
 
-.controller('UserController', function($scope, $rootScope, $stateParams, $cordovaLocalNotification, users) {
+.controller('UserController', function($scope, $rootScope, $stateParams, $location, $cordovaLocalNotification, users) {
   $scope.user = users.filter(function(obj) {
     return +$stateParams.id === +obj.id;
   })[0];
@@ -68,6 +83,9 @@ angular.module('pinkTeam.controllers', [])
 
   $scope.scheduleSingleNotification();
 
+  $scope.selectAngel = function() {
+    $location.path('/patients-waiting');
+  };
 })
 
 .controller('LocationPromptController', function($scope, $location, $rootScope) {
@@ -130,14 +148,16 @@ angular.module('pinkTeam.controllers', [])
   }
 })
 
-.controller('NicknameController', function($scope, $rootScope) {
-  $scope.$watch("nickname", function(){
-    $rootScope.nickname = "karen";
-  });
+.controller('NicknameController', function($scope, $rootScope, $location) {
+  $scope.nick = {name: ''};
+  $scope.submitForm = function(){
+    $rootScope.nick = $scope.nick.name;
+    $location.path("/role");
+  }
 })
 
 .controller('RoleController', function($scope, $rootScope) {
-
+  $scope.nickname = $rootScope.nick;
 })
 
 .controller('AngelController', function($scope) {
