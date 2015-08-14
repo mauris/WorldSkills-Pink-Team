@@ -1,6 +1,10 @@
+<div class="bar bar-header">
+  <a href="#/location-prompt" class="button button-icon icon ion-android-arrow-back"></a>
+</div>
+
 <ion-content class="padding">
   <header class="header">
-  	<h2 class="header__title">{{message}}</h2>
+  	<h2 class="header__title header__title--small" ng-bind-html="message"></h2>
   </header>
 
   <a href="#/match?isLoading=true">
