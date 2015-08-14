@@ -245,6 +245,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     color: #fff;
     padding-top: 200px;
 }
+.text-box img{
+    padding-top: 150px;
+}
 .fighter-box{
     background-color: #ff9800;
 }
@@ -258,7 +261,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     background-color: #ffb300;
 }
 .footer-buttons{
-    height: 100%;
+    height: 70%;
 }
 .footer-buttons a{
     text-decoration: none;
@@ -328,4 +331,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     stroke-dashoffset: 187;
     transform: rotate(450deg);
   }
+
+.box-bottom{
+    background-color: #ff9800;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 30%;
 }
