@@ -1,4 +1,4 @@
-angular.module('pinkTeam.controllers', [])
+angular.module('pinkTeam.controllers', ["ngCordova"])
 
 .controller('HomeController', function($scope, $rootScope) {
 })
@@ -27,6 +27,9 @@ angular.module('pinkTeam.controllers', [])
     {name: 'treatment', measure: nearestNeighbor.comparisonMethods.word},
     {name: 'numberOfChildren', measure: nearestNeighbor.comparisonMethods.number, max: 100},
     {name: 'state', measure: nearestNeighbor.comparisonMethods.word},
+    {name: 'religion', measure: nearestNeighbor.comparisonMethods.word},
+    {name: 'music', measure: nearestNeighbor.comparisonMethods.wordArray},
+    {name: 'movies', measure: nearestNeighbor.comparisonMethods.wordArray},
   ];
 
   nearestNeighbor.findMostSimilar(query, users, fields, function(nearest) {
@@ -89,6 +92,8 @@ angular.module('pinkTeam.controllers', [])
 
 .controller('NicknameController', function($scope, $rootScope, $location) {
   $scope.nick = {name: ''};
+
+  document.getElementById('nameTextbox').click();
 
   $scope.submitForm = function() {
     $rootScope.user.name = $scope.nick.name;
