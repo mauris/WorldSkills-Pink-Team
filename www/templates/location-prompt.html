@@ -1,6 +1,8 @@
 <ion-content>
   <header class="header">
-    <h1 class="header__title"><span>We are almost done.</span> Where are you from?</h1>
+    <h1 class="header__title">
+      <span>We are almost done.</span> Where are you from?
+    </h1>
   </header>
 
   <map class="location-maps"
@@ -9,10 +11,10 @@
     street-view-control="false"
     zoom-control="false">
   </map>
-
-  <i ng-click="getLocation()" class="location-maps-my-location icons ion-android-locate"></i>
-
-  <button ng-click="skipButtonClick()" class="location-maps-button button button-full button-balanced">
-    <div class="title">I’d rather not say</div>
-  </button>
 </ion-content>
+
+<button ng-click="skipButtonClick()" class="location-maps-button button button-full button-balanced">
+  <div class="title">I’d rather not say</div>
+</button>
+
+<button ng-click="getLocation()" class="location-maps-my-location icons ion-android-locate"></button>
