@@ -76,51 +76,6 @@ angular.module('pinkTeam.controllers', [])
     $rootScope.locationPromptMessage = 'That\'s okay. Last question: How are you feeling today?';
     $scope.nextButtonClick();
   };
-
-  (function(google, gmaps) {
-    var map, marker;
-    var geocoder = new gmaps.Geocoder();
-    var mapOptions = {
-      center: new gmaps.LatLng(-22.3224217,-53.438013),
-      zoom: 3,
-      streetViewControl: false,
-      mapTypeControl: false,
-      zoomControl: false,
-      draggable: false
-    };
-
-    var getArea = function(latLng, components){
-      var streetNumber, route, postalCode, area;
-      for (var i in components) {
-        var component = components[i];
-        if (!area && component.types.indexOf("administrative_area_level_1") > -1) {
-          area = component.long_name;
-        }
-      }
-
-      return area;
-    }
-
-    map = new gmaps.Map(document.getElementById("map-canvas"), mapOptions);
-
-    gmaps.event.addListener(map, 'mousedown', function(event) {
-    $scope.$apply(function(){
-      $scope.showLoading = true;
-    });
-      geocoder.geocode({'location': event.latLng}, function(results, status){
-        if (status == gmaps.GeocoderStatus.OK && results[0]) {
-          var area = getArea(event.latLng, results[0].address_components);
-          if (area) {
-            $scope.$apply(function(){
-              $scope.showConfirmation = true;
-              $scope.showLoading = false;
-            });
-            document.getElementById('location-prompt-area').innerHTML = area;
-          }
-        }
-      });
-    });
-  })(google, google.maps);
 })
 
 .controller('FeelingController', function($scope, $rootScope) {
