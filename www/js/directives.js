@@ -6,7 +6,8 @@ angular.module('pinkTeam.directives', [])
     require: '^^ionNavView',
     link: function(scope, element, attrs, ctrl) {
     	scope.wasFocused = false;
-      ctrl.scope.$on('$ionicView.enter', function() {
+      ctrl.scope.$on('$ionicView.afterEnter', function() {
+      	console.log('hello');
       	if (scope.wasFocused) {
       		return;
       	}

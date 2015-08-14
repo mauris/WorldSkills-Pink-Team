@@ -131,33 +131,6 @@ angular.module('pinkTeam.controllers', [])
 })
 
 .controller('NicknameController', function($scope, $rootScope, $location) {
-  $rootScope.user = {
-    name: 'Joana',
-    birthday: '30/05/1900',
-    gender: 'female',
-    location: {lat:-23.52677, lng:-46.664291},
-    status: 'married',
-    typeOfIssue: 'Cervical',
-    treatment: 'Surgery',
-    numberOfChildren: 1,
-    state: "São Paulo",
-    role: 'fighter',
-    religion: "Catholic",
-    music: [
-      "Trance music",
-      "Fall Out Boy",
-      "Katy Perry",
-      "David Archuleta",
-      "The Fray"
-    ],
-    movies: [
-      "Spirited Away",
-      "We Were Soldiers",
-      "Zombieland",
-      "Empire of the Sun"
-    ]
-  };
-
   $scope.nick = {name: ''};
 
   $scope.submitForm = function() {
