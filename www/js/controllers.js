@@ -173,7 +173,7 @@ angular.module('pinkTeam.controllers', [])
   $rootScope.user.role = "angel";
 })
 
-.controller('FighterController', function($scope) {
+.controller('FighterController', function($scope, $rootScope) {
   console.log('you are superador');
   $rootScope.user.role = "fighter";
 })
