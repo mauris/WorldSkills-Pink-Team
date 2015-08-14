@@ -25,4 +25,14 @@
   <div class="title">Confirm my location</div>
 </button>
 
-<button ng-click="hasDoneLocationFetch = true;getLocation()" class="location-maps-my-location icons ion-android-locate"></button>
+<button ng-click="hasDoneLocationFetch = true; getLocation()" class="location-maps-my-location icons ion-android-locate"></button>
+
+<div class="loading-container loading-container--transparent" ng-class="{'visible active': isLoading}">
+  <div class="loading">
+    <span class="loading-title">
+      <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+        <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+      </svg>
+    </span>
+  </div>
+</div>
