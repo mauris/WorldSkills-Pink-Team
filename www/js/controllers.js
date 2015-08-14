@@ -84,7 +84,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
 })
 
 .controller('FeelingController', function($scope, $rootScope) {
-  $scope.message = 'Thanks! One last question: How are you feeling today?';
+  $scope.message = 'Thanks! Last question: How are you feeling today?';
   if ($rootScope.locationPromptMessage) {
     $scope.message = $rootScope.locationPromptMessage;
   }
