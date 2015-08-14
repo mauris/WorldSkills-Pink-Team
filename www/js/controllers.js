@@ -53,7 +53,7 @@ angular.module('pinkTeam.controllers', [])
     });
   };
 
-  $scope.scheduleSingleNotification();
+  // $scope.scheduleSingleNotification();
 
   $scope.selectAngel = function() {
     $location.path('/patients-waiting');

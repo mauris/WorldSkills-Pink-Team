@@ -8,6 +8,7 @@
 angular.module('pinkTeam', [
   'ionic',
   'pinkTeam.controllers',
+  'pinkTeam.directives',
   'pinkTeam.services',
   'pinkTeam.filters',
   'ngMap',
