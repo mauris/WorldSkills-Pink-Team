@@ -43,7 +43,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
     return +$stateParams.id === +obj.id;
   })[0];
 
-  if (window.cordova && false) {
+  if (window.cordova) {
     $scope.scheduleSingleNotification = function () {
       $cordovaLocalNotification.schedule({
         id: 1,
@@ -65,27 +65,20 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   };
 })
 
-.controller('LocationPromptController', function($scope, $location, $rootScope, $cordovaGeolocation, $ionicLoading) {
+.controller('LocationPromptController', function($scope, $location, $rootScope, $http, $cordovaGeolocation, $ionicLoading) {
   $scope.position = {
     zoom: 4,
     lat: -15.7833,
     lng: -47.8667
   };
 
-  $scope.showLoading = function() {
-    $ionicLoading.show({
-      template: 'Loading...'
-    });
-  };
-
-  $scope.hideLoading = function(){
-    $ionicLoading.hide();
-  };
+  $scope.isLoading = false;
 
   $scope.hasDoneLocationFetch = false;
 
   $scope.getLocation = function() {
-    $scope.showLoading();
+    $scope.isLoading = true;
+
     var posOptions = {timeout: 10000, enableHighAccuracy: true};
 
     $cordovaGeolocation
@@ -98,7 +91,9 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
         $rootScope.user.location.lat = $scope.position.lat;
         $rootScope.user.location.lng = $scope.position.lng;
 
-        $scope.hideLoading();
+        $scope.isLoading = false;
+        $scope.hasDoneLocationFetch = true;
+
       }, function(err) {
         // error
       });
@@ -106,9 +101,9 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
 
   $scope.nextButtonClick = function() {
     if ($rootScope.user.role === 'fighter') {
-      $location.path("/feeling");
+      $location.path('/feeling');
     } else {
-      $location.path("/fighter-request");
+      $location.path('/fighter-request');
     }
   }
 
@@ -120,6 +115,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
 
 .controller('FeelingController', function($scope, $rootScope) {
   $scope.message = '<span>Thanks! Last question:</span> How are you feeling today?';
+
   if ($rootScope.locationPromptMessage) {
     $scope.message = $rootScope.locationPromptMessage;
   }
@@ -130,7 +126,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
 
   $scope.submitForm = function() {
     $rootScope.user.name = $scope.nick.name;
-    $location.path("/role");
+    $location.path('/role');
   }
 })
 
