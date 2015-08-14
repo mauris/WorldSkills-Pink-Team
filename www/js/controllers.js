@@ -29,7 +29,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
     {name: 'state', measure: nearestNeighbor.comparisonMethods.word},
     {name: 'religion', measure: nearestNeighbor.comparisonMethods.word},
     {name: 'music', measure: nearestNeighbor.comparisonMethods.wordArray},
-    {name: 'movies', measure: nearestNeighbor.comparisonMethods.word},
+    {name: 'movies', measure: nearestNeighbor.comparisonMethods.wordArray},
   ];
 
   nearestNeighbor.findMostSimilar(query, users, fields, function(nearest) {
