@@ -131,14 +131,14 @@ angular.module('pinkTeam.controllers', [])
 
 .controller('NicknameController', function($scope, $rootScope, $location) {
   $scope.nick = {name: ''};
-  $scope.submitForm = function(nickname){
-    $rootScope.nick = nickname;
+  $scope.submitForm = function(){
+    $rootScope.nick = $scope.nick.name;
     $location.path("/role");
   }
 })
 
 .controller('RoleController', function($scope, $rootScope) {
-  $scope.nickname = $rootScope.nickname;
+  $scope.nickname = $rootScope.nick;
 })
 
 .controller('AngelController', function($scope) {
