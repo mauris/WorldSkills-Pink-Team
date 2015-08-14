@@ -129,14 +129,16 @@ angular.module('pinkTeam.controllers', [])
   }
 })
 
-.controller('NicknameController', function($scope, $rootScope) {
-  $scope.$watch("nickname", function(){
-    $rootScope.nickname = "karen";
-  });
+.controller('NicknameController', function($scope, $rootScope, $location) {
+  $scope.nick = {name: ''};
+  $scope.submitForm = function(nickname){
+    $rootScope.nick = nickname;
+    $location.path("/role");
+  }
 })
 
 .controller('RoleController', function($scope, $rootScope) {
-
+  $scope.nickname = $rootScope.nickname;
 })
 
 .controller('AngelController', function($scope) {

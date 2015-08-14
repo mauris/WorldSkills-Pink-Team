@@ -1,11 +1,12 @@
-<div class="padding">
-    <ion-content>
-        <h1>How may I call you?</h1>
-        <label class="item item-input">
-          <input name="nickname" ng-model="nickname" type="text" placeholder="Your nickname here">
-        </label>
-    </ion-content>
-    <a href="#/role" class="bar bar-footer bar-balanced">
-        <div class="title">Save</div>
-    </a>
-</div>
+
+<ion-content class="padding">
+    <h1>How may I call you?</h1>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input name="nickname" ng-model="nick.name" type="text" placeholder="Your nickname here">
+      </label>
+    </div>
+</ion-content>
+<button class="bar bar-footer bar-balanced" ng-click="submitForm(nickname)">
+    <div class="title">Next <i class="icon ion-arrow-right-b"></i></div>
+</button>
