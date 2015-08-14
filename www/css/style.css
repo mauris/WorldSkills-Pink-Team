@@ -221,9 +221,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .text-box{
-    padding-top: 200px;
     text-align: center;
-
+}
+.text-box h1{
+    font-weight: 0;
+    font-size: 22px;
+    margin: 0;
+    color: #fff;
+    padding-top: 200px;
 }
 .fighter-box{
     background-color: #ff9800;
@@ -241,7 +246,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     height: 100%;
 }
 .footer-buttons a{
-text-decoration: none;
+    text-decoration: none;
 }
 .gm-style-cc {
   display: none;
