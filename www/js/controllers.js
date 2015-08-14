@@ -78,7 +78,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   $scope.getLocation = function() {
     console.log('hello');
 
-    var posOptions = {timeout: 10000, enableHighAccuracy: false};
+    var posOptions = {timeout: 10000, enableHighAccuracy: true};
 
     $cordovaGeolocation
       .getCurrentPosition(posOptions)
