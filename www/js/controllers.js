@@ -64,9 +64,17 @@ angular.module('pinkTeam.controllers', [])
   $scope.showConfirmation = false;
   $scope.showLoading = false;
 
+  $scope.nextButtonClick = function() {
+    if ($rootScope.user.role === 'fighter') {
+      $location.path("/feeling");
+    } else {
+      $location.path("/fighter-request");
+    }
+  }
+
   $scope.skipButtonClick = function() {
     $rootScope.locationPromptMessage = 'That\'s okay. Last question: How are you feeling today?';
-    $location.path("/feeling");
+    $scope.nextButtonClick();
   };
 
   (function(google, gmaps) {
@@ -101,12 +109,14 @@ angular.module('pinkTeam.controllers', [])
     });
       geocoder.geocode({'location': event.latLng}, function(results, status){
         if (status == gmaps.GeocoderStatus.OK && results[0]) {
-          var neighbourhood = getArea(event.latLng, results[0].address_components);
-          $scope.$apply(function(){
-            $scope.showConfirmation = true;
-            $scope.showLoading = false;
-          });
-          document.getElementById('location-prompt-area').innerHTML = neighbourhood;
+          var area = getArea(event.latLng, results[0].address_components);
+          if (area) {
+            $scope.$apply(function(){
+              $scope.showConfirmation = true;
+              $scope.showLoading = false;
+            });
+            document.getElementById('location-prompt-area').innerHTML = area;
+          }
         }
       });
     });
@@ -157,15 +167,17 @@ angular.module('pinkTeam.controllers', [])
 })
 
 .controller('RoleController', function($scope, $rootScope) {
-
+  $scope.nickname = $rootScope.user.name;
 })
 
-.controller('AngelController', function($scope) {
+.controller('AngelController', function($scope, $rootScope) {
   console.log('you are angel');
+  $rootScope.user.role = "angel";
 })
 
-.controller('FighterController', function($scope) {
+.controller('FighterController', function($scope, $rootScope) {
   console.log('you are superador');
+  $rootScope.user.role = "fighter";
 })
 
 .controller('FighterRequestController', function($scope) {
