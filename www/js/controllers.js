@@ -65,19 +65,26 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   };
 })
 
-.controller('LocationPromptController', function($scope, $location, $rootScope, $cordovaGeolocation) {
-  $scope.showConfirmation = false;
-  $scope.showLoading = false;
-
+.controller('LocationPromptController', function($scope, $location, $rootScope, $cordovaGeolocation, $ionicLoading) {
   $scope.position = {
     zoom: 4,
     lat: -15.7833,
     lng: -47.8667
   };
 
-  $scope.getLocation = function() {
-    console.log('hello');
+  $scope.showLoading = function() {
+    $ionicLoading.show({
+      template: 'Loading...'
+    });
+  };
 
+  $scope.hideLoading = function(){
+    $ionicLoading.hide();
+  };
+
+
+  $scope.getLocation = function() {
+    $scope.showLoading();
     var posOptions = {timeout: 10000, enableHighAccuracy: true};
 
     $cordovaGeolocation
@@ -89,6 +96,8 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
 
         $rootScope.user.location.lat = $scope.position.lat;
         $rootScope.user.location.lng = $scope.position.lng;
+
+        $scope.hideLoading();
       }, function(err) {
         // error
       });
@@ -109,7 +118,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
 })
 
 .controller('FeelingController', function($scope, $rootScope) {
-  $scope.message = 'Thanks! Last question: How are you feeling today?';
+  $scope.message = '<span>Thanks! Last question:</span> How are you feeling today?';
   if ($rootScope.locationPromptMessage) {
     $scope.message = $rootScope.locationPromptMessage;
   }

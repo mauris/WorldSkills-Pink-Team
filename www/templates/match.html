@@ -1,16 +1,21 @@
-<div class="bar bar-header bar-stable">
-	<h1 class="title">{{user.name}}, I found great matches for you, take a look:</h1>
-</div>
+<ion-content>
+	<div class="header">
+		<h1 class="header__title header__title--small"><span>{{user.name}}, I found great matches</span> for you! Take a look:</h1>
+	</div>
 
-<ion-content class="has-header padding">
 	<ul class="match-entries">
 		<li class="match-entries__item" ng-repeat="angel in filteredUsers | orderBy: '-similarity'" ng-hide="user.id === angel.id">
-			<div class="match-entries__content">
+			<div class="match-entries__meta match-entries__meta--name">
 				<h4 class="match-entries__name">{{angel.name}}</h4>
 				<span class="match-entries__age">{{angel.birthday | age}} years old</span>
 			</div>
 
-			<span class="match-entries__similarity" ng-if="angel.similarity">
+			<span class="match-entries__meta">
+				<span class="match-entries__gender" ng-class="{'match-entries__gender--male': angel.gender === 'male', 'match-entries__gender--female': angel.gender === 'female'}">{{angel.gender}}</span>
+				<span class="match-entries__state">{{angel.state}}</span>
+			</span>
+
+			<span class="match-entries__meta match-entries__similarity" ng-if="angel.similarity" ng-style="{color:'rgba(76, 175, 80,' + angel.similarity +')'}">
 				{{angel.similarity * 100 | number: "0"}}% <span>match</span>
 			</span>
 
