@@ -168,6 +168,12 @@ angular.module('pinkTeam.controllers', [])
   console.log('you are superador');
 })
 
+.controller('FighterRequestController', function($scope) {
+  $scope.fighter = {
+    name: 'Amigo'
+  }
+})
+
 .controller('FeelingReplyController', function($scope) {
   $scope.name = "John";
 })
