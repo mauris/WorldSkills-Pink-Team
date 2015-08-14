@@ -73,7 +73,7 @@ angular.module('pinkTeam', ['ionic', 'pinkTeam.controllers', 'pinkTeam.services'
     url: '/patients-waiting',
     templateUrl: 'templates/patients-waiting.html',
     controller: 'PatientsWaitingController'
-  });
+  })
 
   .state('nickname', {
     url: '/',
