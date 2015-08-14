@@ -40,20 +40,22 @@ angular.module('pinkTeam.controllers', [])
     return +$stateParams.id === +obj.id;
   })[0];
 
-  $scope.scheduleSingleNotification = function () {
-    $cordovaLocalNotification.schedule({
-      id: 1,
-      title: 'Title here',
-      text: 'Text here',
-      data: {
-        customProperty: 'custom value'
-      }
-    }).then(function (result) {
-      // ...
-    });
-  };
+  if (window.cordova) {
+    $scope.scheduleSingleNotification = function () {
+      $cordovaLocalNotification.schedule({
+        id: 1,
+        title: 'Title here',
+        text: 'Text here',
+        data: {
+          customProperty: 'custom value'
+        }
+      }).then(function (result) {
+        // ...
+      });
+    };
 
-  // $scope.scheduleSingleNotification();
+    $scope.scheduleSingleNotification();
+  }
 
   $scope.selectAngel = function() {
     $location.path('/patients-waiting');
