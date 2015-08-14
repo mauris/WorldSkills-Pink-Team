@@ -4,13 +4,13 @@
   </header>
 
   <map class="location-maps"
-    zoom="11"
-    center="[{{user.location.lat}}, {{user.location.lng}}]"
+    zoom="{{position.zoom}}"
+    center="[{{position.lat}}, {{position.lng}}]"
     street-view-control="false"
     zoom-control="false">
   </map>
 
-  <i class="location-maps-my-location icons ion-android-locate"></i>
+  <i ng-click="getLocation()" class="location-maps-my-location icons ion-android-locate"></i>
 
   <button ng-click="nextButtonClick()" class="location-maps-button button button-full button-balanced">
     <div class="title">I’d rather not say</div>

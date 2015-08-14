@@ -204,12 +204,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   width: 70px;
   height: 70px;
   box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
-  transition: transform 150ms cubic-bezier(.4,0,1,1);
+  transition: box-shadow 150ms cubic-bezier(0,0,.2,1);
+  cursor: pointer;
 }
 
 .location-maps-my-location:hover {
   box-shadow: 0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32);
-  transition: box-shadow 150ms cubic-bezier(0,0,.2,1);
 }
 
 .location-maps-button {

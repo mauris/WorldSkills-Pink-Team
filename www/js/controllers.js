@@ -65,9 +65,34 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   };
 })
 
-.controller('LocationPromptController', function($scope, $location, $rootScope) {
+.controller('LocationPromptController', function($scope, $location, $rootScope, $cordovaGeolocation) {
   $scope.showConfirmation = false;
   $scope.showLoading = false;
+
+  $scope.position = {
+    zoom: 4,
+    lat: -15.7833,
+    lng: -47.8667
+  };
+
+  $scope.getLocation = function() {
+    console.log('hello');
+
+    var posOptions = {timeout: 10000, enableHighAccuracy: false};
+
+    $cordovaGeolocation
+      .getCurrentPosition(posOptions)
+      .then(function (position) {
+        $scope.position.zoom = 11;
+        $scope.position.lat = position.coords.latitude;
+        $scope.position.lng = position.coords.longitude;
+
+        $rootScope.user.location.lat = $scope.position.lat;
+        $rootScope.user.location.lng = $scope.position.lng;
+      }, function(err) {
+        // error
+      });
+  };
 
   $scope.nextButtonClick = function() {
     if ($rootScope.user.role === 'fighter') {
