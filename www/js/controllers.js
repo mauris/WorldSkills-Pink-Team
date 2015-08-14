@@ -98,6 +98,24 @@ angular.module('pinkTeam.controllers', [])
   }
 })
 
+.controller('NicknameController', function($scope, $rootScope) {
+  $scope.$watch("nickname", function(){
+    $rootScope.nickname = "karen";
+  });
+})
+
+.controller('RoleController', function($scope, $rootScope) {
+
+})
+
+.controller('AngelController', function($scope) {
+  console.log('you are angel');
+})
+
+.controller('FighterController', function($scope) {
+  console.log('you are superador');
+})
+
 .controller('FeelingReplyController', function($scope) {
   $scope.name = "John";
 });
