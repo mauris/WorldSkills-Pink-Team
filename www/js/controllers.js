@@ -65,7 +65,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   };
 })
 
-.controller('LocationPromptController', function($scope, $location, $rootScope, $cordovaGeolocation) {
+.controller('LocationPromptController', function($scope, $location, $rootScope, $cordovaGeolocation, $ionicLoading) {
   $scope.showConfirmation = false;
   $scope.showLoading = false;
 
@@ -75,9 +75,17 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
     lng: -47.8667
   };
 
-  $scope.getLocation = function() {
-    console.log('hello');
+  $scope.showLoading = function() {
+    $ionicLoading.show({
+      template: 'Loading...'
+    });
+  };
+  $scope.hideLoading = function(){
+    $ionicLoading.hide();
+  };
 
+
+  $scope.getLocation = function() {
     var posOptions = {timeout: 10000, enableHighAccuracy: true};
 
     $cordovaGeolocation
