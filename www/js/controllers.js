@@ -67,6 +67,10 @@ angular.module('pinkTeam.controllers', [])
   $scope.user = users.filter(function(obj) {
     return +$stateParams.id === +obj.id;
   })[0];
+
+  $scope.selectAngel = function() {
+
+  };
 })
 
 .controller('LocationPromptController', function($scope, $location, $rootScope) {
