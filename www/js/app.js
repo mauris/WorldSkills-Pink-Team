@@ -10,7 +10,8 @@ angular.module('pinkTeam', [
   'pinkTeam.controllers',
   'pinkTeam.services',
   'pinkTeam.filters',
-  'ngMap'
+  'ngMap',
+  'ngCordova'
 ])
 
 .run(function($ionicPlatform) {

@@ -48,10 +48,26 @@ angular.module('pinkTeam.controllers', [])
   });
 })
 
-.controller('UserController', function($scope, $rootScope, $stateParams, users) {
+.controller('UserController', function($scope, $rootScope, $stateParams, $cordovaLocalNotification, users) {
   $scope.user = users.filter(function(obj) {
     return +$stateParams.id === +obj.id;
   })[0];
+
+  $scope.scheduleSingleNotification = function () {
+    $cordovaLocalNotification.schedule({
+      id: 1,
+      title: 'Title here',
+      text: 'Text here',
+      data: {
+        customProperty: 'custom value'
+      }
+    }).then(function (result) {
+      // ...
+    });
+  };
+
+  $scope.scheduleSingleNotification();
+
 })
 
 .controller('LocationPromptController', function($scope, $location, $rootScope) {

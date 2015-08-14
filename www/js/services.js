@@ -74,7 +74,8 @@ angular.module('pinkTeam.services', [])
       typeOfIssue: "Stomach",
       treatment: "Surgery",
       numberOfChildren: 3,
-      role: "fighter"
+      role: "fighter",
+      state: "Acre"
     }
   ]
 })

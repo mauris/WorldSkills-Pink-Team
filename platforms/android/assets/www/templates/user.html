@@ -1,0 +1,26 @@
+<div class="bar bar-header bar-stable">
+  <a class="button button-icon icon ion-ios-arrow-thin-left" href="#/match"></a>
+  <h1 class="title">{{user.name}}</h1>
+</div>
+
+<ion-content class="has-header">
+	<span class="padding">{{user.birthday | age}} years old</span>
+
+	<map class="user-maps"
+		zoom="11"
+	  center="[{{user.location.lat}}, {{user.location.lng}}]"
+	  draggable="false">
+	</map>
+
+	<ul class="list padding">
+		<li>Gender: {{user.gender}}</li>
+		<li>State: {{user.state}}</li>
+		<li>Type of the cancer: {{user.typeOfIssue}}</li>
+		<li>Treatment: {{user.treatment}}</li>
+		<li ng-if="user.numberOfChildren">Children: {{user.numberOfChildren}}</li>
+	</ul>
+</ion-content>
+
+<div class="bar bar-footer bar-balanced">
+  <div class="title">I found my angel!</div>
+</div>

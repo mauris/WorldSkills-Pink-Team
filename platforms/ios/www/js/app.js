@@ -5,7 +5,14 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('pinkTeam', [
+  'ionic',
+  'pinkTeam.controllers',
+  'pinkTeam.services',
+  'pinkTeam.filters',
+  'ngMap',
+  'ngCordova'
+])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -31,55 +38,71 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-  // setup an abstract state for the tabs directive
-    .state('tab', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
-  })
-
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
-      }
-    }
+  .state('home', {
+    url: '/home',
+    templateUrl: 'templates/home.html',
+    controller: 'HomeController'
   })
 
-  .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
+  .state('match', {
+    url: '/match?isLoading',
+    templateUrl: 'templates/match.html',
+    controller: 'MatchController'
+  })
 
-  .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
-      }
-    }
-  });
+  .state('user', {
+    url: '/user/:id',
+    templateUrl: 'templates/user.html',
+    controller: 'UserController'
+  })
 
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  .state('location-prompt', {
+    url: '/location-prompt',
+    templateUrl: 'templates/location-prompt.html',
+    controller: 'LocationPromptController'
+  })
 
+  .state('feeling', {
+    url: '/feeling',
+    templateUrl: 'templates/feeling.html',
+    controller: 'FeelingController'
+  })
+
+  .state('feeling-reply', {
+    url: '/feeling-reply',
+    templateUrl: 'templates/feeling-reply.html',
+    controller: 'FeelingReplyController'
+  })
+
+  .state('patients-waiting', {
+    url: '/patients-waiting',
+    templateUrl: 'templates/patients-waiting.html',
+    controller: 'PatientsWaitingController'
+  })
+
+  .state('nickname', {
+    url: '/',
+    templateUrl: 'templates/nickname.html',
+    controller: 'NicknameController'
+  })
+  .state('role', {
+    url: '/role',
+    templateUrl: 'templates/role.html',
+    controller: 'RoleController'
+  })
+  .state('angel', {
+    url: '/angel',
+    templateUrl: 'templates/genre.html',
+    controller: 'AngelController'
+  })
+  .state('fighter', {
+    url: '/fighter',
+    templateUrl: 'templates/genre.html',
+    controller: 'FighterController'
+  })
+  ;
+
+  $urlRouterProvider.otherwise('/');
 });
