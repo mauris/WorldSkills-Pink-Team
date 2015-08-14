@@ -27,6 +27,9 @@ angular.module('pinkTeam.controllers', [])
     {name: 'treatment', measure: nearestNeighbor.comparisonMethods.word},
     {name: 'numberOfChildren', measure: nearestNeighbor.comparisonMethods.number, max: 100},
     {name: 'state', measure: nearestNeighbor.comparisonMethods.word},
+    {name: 'religion', measure: nearestNeighbor.comparisonMethods.word},
+    {name: 'music', measure: nearestNeighbor.comparisonMethods.wordArray},
+    {name: 'movies', measure: nearestNeighbor.comparisonMethods.word},
   ];
 
   nearestNeighbor.findMostSimilar(query, users, fields, function(nearest) {
