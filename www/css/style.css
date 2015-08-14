@@ -80,6 +80,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   margin: 0;
 }
 
+.header__username {
+  padding: 15px;
+}
+
+.header__username small {
+  font-size: 60%;
+}
+
 .header__title span {
   display: block;
 }
@@ -439,4 +447,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     opacity: 1;
     max-height: auto;
   }
+}
+
+.pull-right{
+  float: right;
 }

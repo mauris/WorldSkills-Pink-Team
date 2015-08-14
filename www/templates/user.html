@@ -1,9 +1,11 @@
-<div class="bar bar-header bar-stable">
-  <a class="button button-icon icon ion-ios-arrow-back" nav-direction="back" href="#/match"></a>
-  <h1 class="title">{{user.name}}</h1>
+<div class="bar bar-header">
+  <a href="#/match" nav-direction="back" class="button button-icon icon ion-android-arrow-back"></a>
 </div>
 
 <ion-content class="has-header has-footer">
+  <h1 class="header__title header__username">
+    {{user.name}} <small>{{user.state}}</small>
+  </h1>
 
   <map class="user-maps"
     zoom="11"
@@ -28,14 +30,6 @@
       Gender
       <span class="item-note">
         {{user.gender}}
-      </span>
-    </a>
-
-    <a class="item item-icon-left" href="#">
-      <i class="icon ion-location"></i>
-      State
-      <span class="item-note">
-        {{user.state}}
       </span>
     </a>
 
