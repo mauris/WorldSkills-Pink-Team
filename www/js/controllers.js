@@ -8,9 +8,9 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   $scope.isLoading = $stateParams.isLoading ? true : false;
   $scope.loadingProgress = 10;
 
-  var duration = 50;
+  var duration = 60;
   var loading = $interval(function() {
-    $scope.loadingProgress = $scope.loadingProgress + Math.ceil(Math.random() * 5 + 2);
+    $scope.loadingProgress = $scope.loadingProgress + Math.ceil(Math.random() * 3 + 1);
 
     if ($scope.loadingProgress >= 100) {
       $interval.cancel(loading);
