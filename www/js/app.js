@@ -40,10 +40,10 @@ angular.module('pinkTeam', [
 
   // Each tab has its own nav history stack:
 
-  .state('home', {
-    url: '/home',
-    templateUrl: 'templates/home.html',
-    controller: 'HomeController'
+  .state('nickname', {
+    url: '/',
+    templateUrl: 'templates/nickname.html',
+    controller: 'NicknameController'
   })
 
   .state('match', {
@@ -82,11 +82,6 @@ angular.module('pinkTeam', [
     controller: 'PatientsWaitingController'
   })
 
-  .state('nickname', {
-    url: '/',
-    templateUrl: 'templates/nickname.html',
-    controller: 'NicknameController'
-  })
   .state('role', {
     url: '/role',
     templateUrl: 'templates/role.html',
