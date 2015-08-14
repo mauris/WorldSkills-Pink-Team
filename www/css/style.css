@@ -131,8 +131,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	        align-items: center;
 
 	padding: 20px 15px;
-	border: 1px solid;
+	background:#FFF;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 	margin-bottom: 15px;
+  border-radius: 3px;
 }
 
 .match-entries__name {
