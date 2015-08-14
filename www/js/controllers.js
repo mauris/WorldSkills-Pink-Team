@@ -43,7 +43,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
     return +$stateParams.id === +obj.id;
   })[0];
 
-  if (window.cordova) {
+  if (window.cordova && false) {
     $scope.scheduleSingleNotification = function () {
       $cordovaLocalNotification.schedule({
         id: 1,
