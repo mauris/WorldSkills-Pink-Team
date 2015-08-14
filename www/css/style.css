@@ -199,3 +199,27 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .text-center {
   text-align: center;
 }
+
+.text-box{
+    padding-top: 200px;
+    text-align: center;
+
+}
+.fighter-box{
+    background-color: #ff9800;
+}
+.man-box{
+    background-color: #2196f3;
+}
+.woman-box{
+    background-color: #e91e63;
+}
+.angel-box{
+    background-color: #ffb300;
+}
+.footer-buttons{
+    height: 100%;
+}
+.footer-buttons a{
+text-decoration: none;
+}
