@@ -119,7 +119,9 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   $scope.showConfirm = function() {
     var confirmPopup = $ionicPopup.confirm({
       title: 'I found you!',
-      template: 'Are you in São Paulo?'
+      template: 'Are you in São Paulo?',
+      cancelText: 'No',
+      okText: 'Yes'
     });
     confirmPopup.then(function(res) {
       if (res) {
