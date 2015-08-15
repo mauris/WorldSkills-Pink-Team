@@ -72,31 +72,19 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
 
 .controller('CancerTypeController', function($scope, $rootScope, $location) {
   $scope.cancersType = [
-    'Adrenal Cancer',
-    'Anal Cancer',
-    'Bile Duct Cancer',
-    'Bladder Cancer',
-    'Bone Cancer',
-    'Brain\/CNS Tumors In Adults',
-    'Brain\/CNS Tumors In Children',
-    'Breast Cancer',
-    'Breast Cancer In Men',
-    'Cancer in Adolescents',
-    'Cancer in Children',
-    'Cancer in Young Adults',
-    'Cancer of Unknown Primary',
+    'Bladder',
+    'Brain\/CNS Tumors',
+    'Breast',
     'Castleman Disease',
-    'Cervical Cancer',
-    'Colon\/Rectum Cancer',
-    'Endometrial Cancer',
-    'Esophagus Cancer',
+    'Cervical',
+    'Endometrial',
+    'Esophagus',
     'Ewing Family Of Tumors',
-    'Eye Cancer',
-    'Gallbladder Cancer',
+    'Eye',
+    'Gallbladder',
     'Gastrointestinal Carcinoid Tumors',
-    'Gastrointestinal Stromal Tumor (GIST)',
-    'Gestational Trophoblastic Disease',
-    'Hodgkin Disease'
+    'Pancreatic',
+    'Stomach'
   ];
 
   $scope.setCancer = function(cancer) {
@@ -104,6 +92,15 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
     console.log($rootScope.user.typeOfIssue);
 
     $location.path('/treatment');
+  };
+// back to choose genre
+  $scope.backToGender = function() {
+    console.log("want go back to genre");
+    if ($rootScope.user.role === 'fighter') {
+      $location.path('/fighter');
+    } else {
+      $location.path('/angel');
+    }
   };
 })
 
@@ -121,6 +118,10 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
     console.log($rootScope.user.treatment);
 
     $location.path('/fb-connect');
+  };
+  $scope.backTo = function() {
+    console.log("want go back to cancer");
+      $location.path('/cancer');
   };
 })
 
@@ -239,15 +240,6 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
 })
 .controller('FbConnectController', function($scope, $rootScope,$location) {
 
-// back to choose genre
-  $scope.backToGender = function() {
-    console.log("want go back to genre");
-    if ($rootScope.user.role === 'fighter') {
-      $location.path('/fighter');
-    } else {
-      $location.path('/angel');
-    }
-  };
 // back to choose genre
   $scope.backTo = function() {
     console.log("want go back to treatment");
