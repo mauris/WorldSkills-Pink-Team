@@ -38,34 +38,37 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   });
 })
 
-.controller('UserController', function($scope, $rootScope, $stateParams, $location, $cordovaLocalNotification, users) {
+.controller('UserController', function($scope, $rootScope, $window, $stateParams, $location, $ionicPlatform, $cordovaLocalNotification, users) {
   $scope.user = users.filter(function(obj) {
     return +$stateParams.id === +obj.id;
   })[0];
 
-  if (window.cordova) {
+
+  $ionicPlatform.ready(function() {
+    if (!$window.cordova) {
+      return;
+    }
+
+    $cordovaLocalNotification.registerPermission();
     $scope.scheduleSingleNotification = function () {
       $cordovaLocalNotification.schedule({
         id: 1,
         title: 'Title here',
-        text: 'Text here',
-        data: {
-          customProperty: 'custom value'
-        }
+        text: 'Text here'
       }).then(function (result) {
         // ...
       });
     };
 
     $scope.scheduleSingleNotification();
-  }
+  });
 
   $scope.selectAngel = function() {
     $location.path('/patients-waiting');
   };
 })
 
-.controller('LocationPromptController', function($scope, $location, $rootScope, $http, $cordovaGeolocation, $ionicLoading) {
+.controller('LocationPromptController', function($scope, $location, $rootScope, $http, $cordovaGeolocation, $ionicLoading, $ionicPopup) {
   $scope.position = {
     zoom: 4,
     lat: -15.7833,
@@ -73,8 +76,6 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   };
 
   $scope.isLoading = false;
-
-  $scope.hasDoneLocationFetch = false;
 
   $scope.getLocation = function() {
     $scope.isLoading = true;
@@ -92,8 +93,8 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
         $rootScope.user.location.lng = $scope.position.lng;
 
         $scope.isLoading = false;
-        $scope.hasDoneLocationFetch = true;
 
+        $scope.showConfirm();
       }, function(err) {
         // error
       });
@@ -110,6 +111,19 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   $scope.skipButtonClick = function() {
     $rootScope.locationPromptMessage = 'That\'s okay. Last question: How are you feeling today?';
     $scope.nextButtonClick();
+  };
+
+  // A confirm dialog
+  $scope.showConfirm = function() {
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'I found you!',
+      template: 'Are you in São Paulo?'
+    });
+    confirmPopup.then(function(res) {
+      if (res) {
+        $scope.skipButtonClick();
+      }
+    });
   };
 })
 
