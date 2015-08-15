@@ -180,7 +180,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
     });
     confirmPopup.then(function(res) {
       if (res) {
-        $scope.skipButtonClick();
+        $scope.nextButtonClick();
       }
     });
   };
