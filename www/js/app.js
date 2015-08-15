@@ -82,7 +82,7 @@ angular.module('pinkTeam', [
   })
 
   .state('user', {
-    url: '/user/:id',
+    url: '/user/:id/:percentage',
     templateUrl: 'templates/user.html',
     controller: 'UserController'
   })
@@ -116,17 +116,18 @@ angular.module('pinkTeam', [
     templateUrl: 'templates/role.html',
     controller: 'RoleController'
   })
+
   .state('angel', {
     url: '/angel',
     templateUrl: 'templates/genre.html',
     controller: 'AngelController'
   })
+
   .state('fighter', {
     url: '/fighter',
     templateUrl: 'templates/genre.html',
     controller: 'FighterController'
   })
-
 
   .state('fighter-request', {
     url: '/fighter-request',

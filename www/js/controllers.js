@@ -39,29 +39,31 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
 })
 
 .controller('UserController', function($scope, $rootScope, $window, $stateParams, $location, $ionicPlatform, $cordovaLocalNotification, users) {
-  $scope.user = users.filter(function(obj) {
+  $scope.angel = users.filter(function(obj) {
     return +$stateParams.id === +obj.id;
   })[0];
 
+  $scope.percentage = $stateParams.percentage;
 
-  $ionicPlatform.ready(function() {
-    if (!$window.cordova) {
-      return;
-    }
 
-    $cordovaLocalNotification.registerPermission();
-    $scope.scheduleSingleNotification = function () {
-      $cordovaLocalNotification.schedule({
-        id: 1,
-        title: 'Title here',
-        text: 'Text here'
-      }).then(function (result) {
-        // ...
-      });
-    };
+  // $ionicPlatform.ready(function() {
+  //   if (!$window.cordova) {
+  //     return;
+  //   }
 
-    $scope.scheduleSingleNotification();
-  });
+  //   $cordovaLocalNotification.registerPermission();
+  //   $scope.scheduleSingleNotification = function () {
+  //     $cordovaLocalNotification.schedule({
+  //       id: 1,
+  //       title: 'Title here',
+  //       text: 'Text here'
+  //     }).then(function (result) {
+  //       // ...
+  //     });
+  //   };
+
+  //   // $scope.scheduleSingleNotification();
+  // });
 
   $scope.selectAngel = function() {
     $location.path('/patients-waiting');
@@ -109,7 +111,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   }
 
   $scope.skipButtonClick = function() {
-    $rootScope.locationPromptMessage = 'That\'s okay. Last question: How are you feeling today?';
+    $rootScope.locationPromptMessage = '<span>That\'s okay. Last question:</span> How are you feeling today?';
     $scope.nextButtonClick();
   };
 
