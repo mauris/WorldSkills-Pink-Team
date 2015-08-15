@@ -176,7 +176,6 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
       template: 'Are you in São Paulo?',
       cancelText: 'No',
       okText: 'Yes'
-
     });
     confirmPopup.then(function(res) {
       if (res) {
@@ -248,6 +247,15 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
     } else {
       $location.path('/angel');
     }
+  };
+// back to choose genre
+  $scope.backTo = function() {
+    console.log("want go back to treatment");
+      $location.path('/treatment');
+  };
+  // skip fb connect
+  $scope.skipFB = function() {
+    $location.path('/feeling');
   };
 
   // skip fb connect
