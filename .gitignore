@@ -27,3 +27,13 @@ build/Release
 node_modules
 
 www/lib
+
+.tmp
+.sass-cache
+coverage
+platforms
+plugins
+*.swp
+*.swo
+*.log
+*.DS_Store
