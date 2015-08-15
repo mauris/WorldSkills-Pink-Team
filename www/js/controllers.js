@@ -179,6 +179,29 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
 .controller('PatientsWaitingController', function($scope, $rootScope) {
 
 })
-.controller('FbConnectController', function($scope, $rootScope) {
+.controller('FbConnectController', function($scope, $rootScope,$location) {
+
+// back to choose genre
+  $scope.backToGender = function() {
+    console.log("want go back to genre");
+    if ($rootScope.user.role === 'fighter') {
+      $location.path('/fighter');
+    } else {
+      $location.path('/angel');
+    }
+  };
+  // skip fb connect
+  $scope.skipFB = function() {
+    $location.path('/feeling');
+  };
+  // skip fb connect
+  $scope.connectFB = function() {
+    console.log("want connect");
+    $scope.isLoading = true;
+
+    var posOptions = {timeout: 10000, enableHighAccuracy: true};
+    $location.path('/location-prompt');
+    $scope.isLoading = false;
+  };
 
 });

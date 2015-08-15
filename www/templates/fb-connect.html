@@ -1,17 +1,29 @@
 <ion-content>
     <div class="splash">
+        <div class="bar bar-header">
+          <button ng-click="backToGender()" class="button button-icon icon ion-android-arrow-back"></button>
+        </div>
         <header class="header">
             <h1 class="header__title"><span>How about finding</span> people that understand you.</h1>
         </header>
         <div class="row footer-buttons">
             <div class="col text-box">
-                <img src="img/fbconnect.jpeg" style="width:100%; padding-bottom: 90px;">
+                <img ng-click="connectFB()" src="img/fbconnect.jpeg" style="width:100%; padding-bottom: 90px;">
                 <a href="#/location-prompt"></a>
             </div>
         </div>
         <button ng-click="skipFB()" class="location-maps-button button button-full button-balanced">
             <div class="title">I’d rather not say</div>
         </button>
-
+        <div class="loading-container loading-container--transparent" ng-class="{'visible active': isLoading}">
+          <div class="loading">
+            <span class="loading-title">
+              <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+              </svg>
+            </span>
+          </div>
+        </div>
     </div>
+
 </ion-content>
