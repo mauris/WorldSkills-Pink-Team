@@ -119,7 +119,9 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   $scope.showConfirm = function() {
     var confirmPopup = $ionicPopup.confirm({
       title: 'I found you!',
-      template: 'Are you in São Paulo?'
+      template: 'Are you in São Paulo?',
+      cancelText: 'No',
+      okText: 'Yes'
     });
     confirmPopup.then(function(res) {
       if (res) {
@@ -201,6 +203,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   $scope.skipFB = function() {
     $location.path('/feeling');
   };
+
   // skip fb connect
   $scope.connectFB = function() {
     console.log("want connect");
