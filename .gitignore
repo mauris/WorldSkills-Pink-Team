@@ -28,6 +28,7 @@ node_modules
 
 www/lib
 
+.DS_Store
 .tmp
 .sass-cache
 coverage
