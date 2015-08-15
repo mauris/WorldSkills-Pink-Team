@@ -180,4 +180,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
 
 .controller('PatientsWaitingController', function($scope, $rootScope) {
 
+})
+.controller('FbConnectController', function($scope, $rootScope) {
+
 });
