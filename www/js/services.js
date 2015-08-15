@@ -348,7 +348,6 @@ angular.module('pinkTeam.services', [])
     return callback(result, maxSimilarity, unmatchedFields);
   };
 
-
   return {
     comparisonMethods: comparisonMethods,
     findMostSimilar: findMostSimilar
