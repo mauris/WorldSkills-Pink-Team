@@ -38,27 +38,30 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   });
 })
 
-.controller('UserController', function($scope, $rootScope, $stateParams, $location, $cordovaLocalNotification, users) {
+.controller('UserController', function($scope, $rootScope, $window, $stateParams, $location, $ionicPlatform, $cordovaLocalNotification, users) {
   $scope.user = users.filter(function(obj) {
     return +$stateParams.id === +obj.id;
   })[0];
 
-  if (window.cordova) {
+
+  $ionicPlatform.ready(function() {
+    if (!$window.cordova) {
+      return;
+    }
+
+    $cordovaLocalNotification.registerPermission();
     $scope.scheduleSingleNotification = function () {
       $cordovaLocalNotification.schedule({
         id: 1,
         title: 'Title here',
-        text: 'Text here',
-        data: {
-          customProperty: 'custom value'
-        }
+        text: 'Text here'
       }).then(function (result) {
         // ...
       });
     };
 
     $scope.scheduleSingleNotification();
-  }
+  });
 
   $scope.selectAngel = function() {
     $location.path('/patients-waiting');

@@ -161,16 +161,13 @@ angular.module('pinkTeam.services', [])
 
 .factory('nearestNeighbor', function() {
   var recordSimilarity = function(a, b, fields) {
-    var i;
+    var i = 0;
     var measure;
     var name;
     var similarity;
-    var sum;
-    var unmatchedFields;
+    var sum = 0;
+    var unmatchedFields = {};
 
-    sum = 0;
-    i = 0;
-    unmatchedFields = {};
     while (i < fields.length) {
       name = fields[i].name;
       measure = fields[i].measure;
