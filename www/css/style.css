@@ -144,12 +144,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 /* Match List */
 
-.match-entries {
+.entries {
   padding-left: 15px;
   padding-right: 15px;
 }
 
-.match-entries__item {
+.entries__item {
   position: relative;
 
   display: -webkit-box;
@@ -169,7 +169,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 
-.match-entries__name {
+.entries__name {
   color: rgba(0, 0, 0, .87);
   overflow: hidden;
   white-space: nowrap;
@@ -177,51 +177,51 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   margin: 0;
 }
 
-.match-entries__gender {
+.entries__gender {
   display: block;
   text-transform: capitalize;
 }
 
-.match-entries__gender--male {
+.entries__gender--male {
   color: #2196f3;
 }
 
-.match-entries__gender--female {
+.entries__gender--female {
   color: #e91e63;
 }
 
-.match-entries__age,
-.match-entries__state,
-.match-entries__similarity span {
+.entries__age,
+.entries__state,
+.entries__similarity span {
   color: rgba(0, 0, 0, .54);
 }
 
-.match-entries__similarity {
+.entries__similarity {
   font-size: 30px;
   text-align: center;
   color: #4caf50;
 }
 
-.match-entries__similarity span {
+.entries__similarity span {
   display: block;
   font-size: 14px;
   line-height: 1;
   color: rgba(0, 0, 0, .54);
 }
 
-.match-entries__meta {
+.entries__meta {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-.match-entries__meta--name {
+.entries__meta--name {
   flex: 0 0 40%;
   padding-right: 15px;
 }
 
-.match-entries__url {
+.entries__url {
   position: absolute;
   top: 0;
   left: 0;
