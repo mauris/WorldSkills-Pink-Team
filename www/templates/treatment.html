@@ -1,0 +1,12 @@
+<ion-content>
+	<div class="header">
+		<h1 class="header__title header__title--small">Tell me about treatment</h1>
+	</div>
+
+	<ul class="entries">
+		<li class="entries__item" ng-repeat="treatment in cancersTreatment">
+			<h4 class="entries__name">{{treatment}}</h4>
+			<a ng-click="setTreatment(treatment)" class="entries__url" ng-href="#" nav-direction="forward"></a>
+		</li>
+	</ul>
+</ion-content>

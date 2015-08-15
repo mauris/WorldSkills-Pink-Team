@@ -70,6 +70,60 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   };
 })
 
+.controller('CancerTypeController', function($scope, $rootScope, $location) {
+  $scope.cancersType = [
+    'Adrenal Cancer',
+    'Anal Cancer',
+    'Bile Duct Cancer',
+    'Bladder Cancer',
+    'Bone Cancer',
+    'Brain\/CNS Tumors In Adults',
+    'Brain\/CNS Tumors In Children',
+    'Breast Cancer',
+    'Breast Cancer In Men',
+    'Cancer in Adolescents',
+    'Cancer in Children',
+    'Cancer in Young Adults',
+    'Cancer of Unknown Primary',
+    'Castleman Disease',
+    'Cervical Cancer',
+    'Colon\/Rectum Cancer',
+    'Endometrial Cancer',
+    'Esophagus Cancer',
+    'Ewing Family Of Tumors',
+    'Eye Cancer',
+    'Gallbladder Cancer',
+    'Gastrointestinal Carcinoid Tumors',
+    'Gastrointestinal Stromal Tumor (GIST)',
+    'Gestational Trophoblastic Disease',
+    'Hodgkin Disease'
+  ];
+
+  $scope.setCancer = function(cancer) {
+    $rootScope.user.typeOfIssue = cancer;
+    console.log($rootScope.user.typeOfIssue);
+
+    $location.path('/treatment');
+  };
+})
+
+.controller('TreatmentController', function($scope, $rootScope, $location) {
+  $scope.cancersTreatment = [
+    'Surgery',
+    'Chemotherapy',
+    'Radiation Therapy',
+    'Immunotherapy',
+    'Photodynamic Therapy'
+  ];
+
+  $scope.setTreatment = function(treatment) {
+    $rootScope.user.treatment = treatment;
+    console.log($rootScope.user.treatment);
+
+    $location.path('/fb-connect');
+  };
+})
+
 .controller('LocationPromptController', function($scope, $location, $rootScope, $http, $cordovaGeolocation, $ionicLoading, $ionicPopup) {
   $scope.position = {
     zoom: 4,

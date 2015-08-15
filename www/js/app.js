@@ -134,10 +134,23 @@ angular.module('pinkTeam', [
     templateUrl: 'templates/fighter-request.html',
     controller: 'FighterRequestController'
   })
+
   .state('fb-connect', {
     url: '/fb-connect',
     templateUrl: 'templates/fb-connect.html',
     controller: 'FbConnectController'
+  })
+
+  .state('cancer', {
+    url: '/cancer',
+    templateUrl: 'templates/cancer.html',
+    controller: 'CancerTypeController'
+  })
+
+  .state('treatment', {
+    url: '/treatment',
+    templateUrl: 'templates/treatment.html',
+    controller: 'TreatmentController'
   })
   ;
 

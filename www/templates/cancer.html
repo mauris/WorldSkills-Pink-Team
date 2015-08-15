@@ -1,0 +1,12 @@
+<ion-content>
+	<div class="header">
+		<h1 class="header__title header__title--small">What type of cancer do you have?</h1>
+	</div>
+
+	<ul class="entries">
+		<li class="entries__item" ng-repeat="cancer in cancersType">
+			<h4 class="entries__name">{{cancer}}</h4>
+			<a ng-click="setCancer(cancer)" class="entries__url" ng-href="#" nav-direction="forward"></a>
+		</li>
+	</ul>
+</ion-content>
