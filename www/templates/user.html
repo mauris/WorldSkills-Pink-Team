@@ -1,65 +1,62 @@
-<div class="bar bar-header">
-  <a href="#/match" nav-direction="back" class="button button-icon icon ion-android-arrow-back"></a>
-</div>
+<div class="user">
+  <div class="bar bar-header">
+    <a href="#/match" nav-direction="back" class="button button-icon icon ion-android-arrow-back"></a>
 
-<ion-content class="has-header has-footer">
-  <h1 class="header__title header__username">
-    {{user.name}} <small>{{user.state}}</small>
-  </h1>
-
-  <map class="user-maps"
-    zoom="11"
-    center="[{{user.location.lat}}, {{user.location.lng}}]"
-    street-view-control="false"
-    zoom-control="false"
-    map-type-control="false"
-    draggable="false">
-  </map>
-
-  <div class="list">
-    <a class="item item-icon-left" href="#">
-      <i class="icon ion-person"></i>
-      Age
-      <span class="item-note">
-        {{user.birthday | age}} years old
-      </span>
-    </a>
-
-    <a class="item item-icon-left" href="#">
-      <i class="icon ion-{{user.gender}}"></i>
-      Gender
-      <span class="item-note">
-        {{user.gender}}
-      </span>
-    </a>
-
-    <a class="item item-icon-left" href="#">
-      <i class="icon ion-help-circled"></i>
-      Cancer Type
-      <span class="item-note">
-        {{user.typeOfIssue}}
-      </span>
-    </a>
-
-    <a class="item item-icon-left" href="#">
-      <i class="icon ion-heart"></i>
-      Treatment
-      <span class="item-note">
-        {{user.treatment}}
-      </span>
-    </a>
-
-    <a class="item item-icon-left" href="#">
-      <i class="icon ion-ios-body"></i>
-      Number of Children
-      <span class="item-note">
-        {{user.numberOfChildren}}
-      </span>
-    </a>
-
+    <span class="button button-icon button-percentage" ng-style="{ color: 'rgba(76, 175, 80,' + (percentage / 100) +')' }">
+      {{percentage}}% <span>match</span>
+    </span>
   </div>
-</ion-content>
 
-<button ng-click="selectAngel()" class="bar bar-footer bar-balanced">
-  <div class="title"><i class="icon ion-android-happy"></i> I found my angel!</div>
-</button>
+  <ion-content class="has-header has-footer">
+    <div class="header-user padding">
+      <h1 class="header-user__title">{{angel.name}}</h1>
+
+      <ul class="header-user__list">
+        <li>{{angel.birthday | age}} years old</li>
+        <li class="match-entries__gender" ng-class="{'match-entries__gender--male': angel.gender === 'male', 'match-entries__gender--female': angel.gender === 'female'}">{{angel.gender}}</li>
+        <li>{{angel.state}}</li>
+      </ul>
+    </div>
+
+    <map class="user-maps"
+      zoom="5"
+      center="[{{angel.location.lat}}, {{angel.location.lng}}]"
+      street-view-control="false"
+      zoom-control="false"
+      map-type-control="false"
+      draggable="false">
+      <shape name="circle" stroke-color="#FF0000" stroke-opacity="0.8" stroke-weight="2" fill-color="#FF0000" fill-opacity="0.35" center="[{{angel.location.lat}}, {{angel.location.lng}}]" radius="430000">
+    </map>
+
+    <div class="list">
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-help-circled"></i>
+        Cancer Type
+        <span class="item-note">
+          {{angel.typeOfIssue}}
+        </span>
+      </a>
+
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-heart"></i>
+        Treatment
+        <span class="item-note">
+          {{angel.treatment}}
+        </span>
+      </a>
+
+      <a class="item item-icon-left" href="#" ng-if="angel.numberOfChildren">
+        <i class="icon ion-ios-body"></i>
+        Number of Children
+        <span class="item-note">
+          {{angel.numberOfChildren}}
+        </span>
+      </a>
+
+    </div>
+  </ion-content>
+
+  <button ng-click="selectAngel()" class="bar bar-footer bar-balanced">
+    <div class="title">I found my angel!</div>
+  </button>
+</div>

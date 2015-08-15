@@ -15,11 +15,13 @@
 				<span class="match-entries__state">{{angel.state}}</span>
 			</span>
 
-			<span class="match-entries__meta match-entries__similarity" ng-if="angel.similarity" ng-style="{color:'rgba(76, 175, 80,' + angel.similarity +')'}">
+			<span class="match-entries__meta match-entries__similarity"
+				ng-if="angel.similarity"
+				ng-style="{color:'rgba(76, 175, 80,' + angel.similarity +')'}">
 				{{angel.similarity * 100 | number: "0"}}% <span>match</span>
 			</span>
 
-			<a class="match-entries__url" ng-href="#/user/{{angel.id}}" nav-direction="forward"></a>
+			<a class="match-entries__url" ng-href="#/user/{{angel.id}}/{{angel.similarity * 100 | number: '0'}}" nav-direction="forward"></a>
 		</li>
 	</ul>
 </ion-content>

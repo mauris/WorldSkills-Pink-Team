@@ -80,20 +80,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   margin: 0;
 }
 
-.header__username {
-  padding: 15px;
-}
-
-.header__username small {
-  font-size: 60%;
-}
-
 .header__title span {
   display: block;
 }
 
 .header__title--small {
-  font-size: 22px;
+  font-size: 20px;
+  white-space: nowrap;
 }
 
 /* Loading */
@@ -240,10 +233,49 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 /* User */
 
+.user,
+.user .bar-header {
+  background-color: #fff;
+}
+
 .user-maps {
   display: block;
   width: 100%;
   height: 200px;
+}
+
+.header-user {
+}
+
+.header-user__title {
+  font-weight: 100;
+  font-size: 30px;
+}
+
+.header-user__list {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(0, 0, 0, .54);
+}
+
+.header-user__list li {
+
+}
+
+.button-percentage.button-icon.button {
+  font-size: 30px;
+  line-height: 1;
+}
+
+.button-percentage.button-icon.button span {
+  display: block;
+  font-size: 15px;
+  color: rgba(0, 0, 0, .54);
+}
+
+.button-percentage.button-icon.button.active,
+.button-percentage.button-icon.button.activated {
+  opacity: 1;
 }
 
 /* Feeling */
