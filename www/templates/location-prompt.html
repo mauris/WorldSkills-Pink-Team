@@ -17,12 +17,8 @@
   </map>
 </ion-content>
 
-<button ng-click="skipButtonClick()" ng-hide="hasDoneLocationFetch" class="location-maps-button button button-full button-balanced">
+<button ng-click="skipButtonClick()" class="location-maps-button button button-full button-balanced">
   <div class="title">I’d rather not say</div>
-</button>
-
-<button ng-click="nextButtonClick()" ng-show="hasDoneLocationFetch" class="location-maps-button button button-full button-balanced">
-  <div class="title">Confirm my location</div>
 </button>
 
 <button ng-click="getLocation()" class="location-maps-my-location">Find me</button>
@@ -36,3 +32,14 @@
     </span>
   </div>
 </div>
+
+<script id="my-modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title">My Modal title</h1>
+    </ion-header-bar>
+    <ion-content>
+      Hello!
+    </ion-content>
+  </ion-modal-view>
+</script>

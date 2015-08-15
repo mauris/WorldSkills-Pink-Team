@@ -68,7 +68,7 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   };
 })
 
-.controller('LocationPromptController', function($scope, $location, $rootScope, $http, $cordovaGeolocation, $ionicLoading) {
+.controller('LocationPromptController', function($scope, $location, $rootScope, $http, $cordovaGeolocation, $ionicLoading, $ionicPopup) {
   $scope.position = {
     zoom: 4,
     lat: -15.7833,
@@ -76,8 +76,6 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   };
 
   $scope.isLoading = false;
-
-  $scope.hasDoneLocationFetch = false;
 
   $scope.getLocation = function() {
     $scope.isLoading = true;
@@ -95,8 +93,8 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
         $rootScope.user.location.lng = $scope.position.lng;
 
         $scope.isLoading = false;
-        $scope.hasDoneLocationFetch = true;
 
+        $scope.showConfirm();
       }, function(err) {
         // error
       });
@@ -113,6 +111,19 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
   $scope.skipButtonClick = function() {
     $rootScope.locationPromptMessage = 'That\'s okay. Last question: How are you feeling today?';
     $scope.nextButtonClick();
+  };
+
+  // A confirm dialog
+  $scope.showConfirm = function() {
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'I found you!',
+      template: 'Are you in São Paulo?'
+    });
+    confirmPopup.then(function(res) {
+      if (res) {
+        $scope.skipButtonClick();
+      }
+    });
   };
 })
 
