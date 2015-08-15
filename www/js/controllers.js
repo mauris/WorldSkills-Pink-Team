@@ -192,6 +192,11 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
       $location.path('/angel');
     }
   };
+// back to choose genre
+  $scope.backTo = function() {
+    console.log("want go back to treatment");
+      $location.path('/treatment');
+  };
   // skip fb connect
   $scope.skipFB = function() {
     $location.path('/feeling');
