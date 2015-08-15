@@ -133,6 +133,11 @@ angular.module('pinkTeam', [
     templateUrl: 'templates/fighter-request.html',
     controller: 'FighterRequestController'
   })
+  .state('fb-connect', {
+    url: '/fb-connect',
+    templateUrl: 'templates/fb-connect.html',
+    controller: 'FbConnectController'
+  })
   ;
 
   $urlRouterProvider.otherwise('/');
