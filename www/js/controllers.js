@@ -210,11 +210,19 @@ angular.module('pinkTeam.controllers', ["ngCordova"])
 .controller('AngelController', function($scope, $rootScope) {
   console.log('you are angel');
   $rootScope.user.role = "angel";
+
+  $scope.setGender = function(gender) {
+    $rootScope.user.gender = gender;
+  };
 })
 
 .controller('FighterController', function($scope, $rootScope) {
   console.log('you are superador');
   $rootScope.user.role = "fighter";
+
+  $scope.setGender = function(gender) {
+    $rootScope.user.gender = gender;
+  };
 })
 
 .controller('FighterRequestController', function($scope, $rootScope, $timeout) {
