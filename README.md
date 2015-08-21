@@ -56,7 +56,7 @@ $ ionic serve
 [demo](_assets/demo_video/demo.mp4)
 
 ## Presentation
-[demo](_assets/presentation/PinkTeamPresentation.pdf)
+[PinkTeamPresentation](_assets/presentation/PinkTeamPresentation.pdf)
 
 ## Conclusion
 By creating better, more compatible matches, we expect patients to have an easier time dealing with their Cancer and by the time they reach the end of their treatments, look back at their experience and maybe start the program again, this time helping someone else go through the same issues they had just overcome.
