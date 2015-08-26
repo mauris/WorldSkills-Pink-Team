@@ -34,13 +34,17 @@ To apply that intelligence to the real world, we created a mobile application. I
 * git
   
 ## How install and run App
-- Clone repository
+- Clone the repository
 ```sh
 $ git clone https://github.com/FelipeMarcos/WorldSkills-Pink-Team.git
 ```
-- Install dependencies, try install as sudo user if you don't have privileges
+- Install Cordova and Ionic globally.
 ```sh
-$ npm install 
+$ npm install -g cordova ionic
+```
+- Install every dependencies, try to install as sudo user if you don't have privileges
+```sh
+$ npm install
 ```
 - Use Bower to manage your front-end dependencies 
 ```sh
@@ -67,3 +71,18 @@ By creating better, more compatible matches, we expect patients to have an easie
 - [node-nearest-neighbor](https://github.com/aschuch/node-nearest-neighbor)
 - [ionicframework](http://ionicframework.com/ )
  
+## License
+
+Copyright 2015 Felipe Marcos, Karen Mikaela, Leonardo Avesani, Sam Yong
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
